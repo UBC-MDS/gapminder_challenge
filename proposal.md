@@ -10,6 +10,12 @@ This project is designed to augment the gapminder [worldview upgrader](https://u
 
 ## Description of the Data
 
+The [dataset](https://raw.githubusercontent.com/UBC-MDS/gapminder_challenge/main/data/raw/world-data-gapminder_raw.csv) we will be using for visualization contains approximately 39,000 rows of summarized data from the [Gapminder dataset](https://www.gapminder.org/data/). Gapminder combines data from multiple sources and the complete Gapminder dataset contains hunderds of indicators. The dataset we will be using is a summary dataset which contains 14 columns with demographic indicators from 1800 to 2018. The visualization app will mainly focus on the recent data, for example from 1900 onwards, for relevancy.
+
+Each data row can be uniquely identified by `country` and `year`. `country` is associated with `region` and `sub_region` which will be useful for filtering within the visualizations. Other possible filters can be built will be `population` and `income group` (High, Upper Middle, Low Middle, Low), depending on the context of the plot.
+
+The demographic indicators we will be using in the visualization app are `children_per_woman`(total fertility rate), `life_expectancy` (in years) and `child_mortality` (under age five). All of these indicators are numeric variables containing no or very few missing values.
+
 ## Research Questions and Usage Scenarios
 
 ### Audience Persona and Usage Example

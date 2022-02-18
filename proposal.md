@@ -14,7 +14,7 @@ The [dataset](https://raw.githubusercontent.com/UBC-MDS/gapminder_challenge/main
 
 Each data row can be uniquely identified by `country` and `year`. `country` is associated with `region` and `sub_region` which will be useful for filtering within the visualizations. Other possible filters can be built will be `population` and `income group` (High, Upper Middle, Low Middle, Low), depending on the context of the plot.
 
-The demographic indicators we will be using in the visualization app are `children_per_woman`(total fertility rate), `life_expectancy` (in years) and `child_mortality` (under age five). All of these indicators are numeric variables containing no or very few missing values.
+The demographic indicators we will be using in this visualization app are `children_per_woman`(total fertility rate), `life_expectancy` (in years), `child_mortality` (under age five) and `income`. All of these indicators are numeric variables containing no or very few missing values.  A new variable `income per capita` will be derived from `income` and `population` for fair comparison of income across countries and over time.
 
 ## Research Questions and Usage Scenarios
 

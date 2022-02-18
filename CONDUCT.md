@@ -43,7 +43,7 @@ The project team can be contacted at any of the following:
   * imtvwy@gmail.com
   * soncqb@gmail.com
   * irene93@student.ubc.ca
-  * 
+  * junigord@gmail.com
 
 ## Attribution
 

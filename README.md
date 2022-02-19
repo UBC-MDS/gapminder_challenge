@@ -2,6 +2,8 @@
 
 Package for Data Visualization
 
+## Dash App Description
+
 ## Installation
 
 ```bash

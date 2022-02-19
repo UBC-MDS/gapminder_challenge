@@ -70,4 +70,4 @@ Before you submit a pull request, check that it meets these guidelines:
 ## Code of Conduct
 
 Please note that the `dsci532_group12` project is released with a 
-Code of Conduct. By contributing to this project you agree to abide by its terms.
+[Code of Conduct](https://github.com/UBC-MDS/gapminder_challenge/blob/main/CONDUCT.md). By contributing to this project you agree to abide by its terms.

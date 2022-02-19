@@ -8,7 +8,7 @@ Our app features a single page that hosts four interactive data visualization pl
 
 Here is an example sketch of the app:
 
-![](app_sketch.png)
+![](images/app_sketch.png)
 
 ## Installation
 

@@ -26,7 +26,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`gapminder_challenge` was created by DSCI532_Group12. It is licensed under the terms of the MIT license.
+`gapminder_challenge` was created by Son Chau, Julien Gordon, Irene Yan, and Vanessa Yuen. It is licensed under the terms of the MIT license.
 
 ## Credits
 

@@ -90,9 +90,11 @@
   <script>
     function flip(event) {
       var element = event.currentTarget;
+      // var childElement = element.querySelector('.front');
       if (element.className === "card") {
         if (element.style.transform == "rotateY(180deg)") {
           element.style.transform = "rotateY(0deg)";
+          // childElement.style.display = "none"
         }
         else {
           element.style.transform = "rotateY(180deg)";
@@ -121,7 +123,7 @@
           <p> 30% </p>
         </div>
         <div class="back">
-          <h1>This is the back</h1>
+          <!-- <h1>This is the back</h1> -->
           <iframe noresize="noresize" style="
         position: absolute;
         background: transparent;

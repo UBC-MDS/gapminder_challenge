@@ -2,19 +2,22 @@ import pandas as pd
 from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
-# get the csv file in data/raw folder
 df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')
-
-
-url_base = '/dash_app1/'
-
+url = '/dash_app1/'
 
 def add_dash(server):
-    app = Dash(server=server, url_base_pathname='/dash_app1/')
+    """
+    It creates a Dash app that plots a bubble plot of life expectancy vs income
+        for a given year.
+    
+    :param server: The Flask app object
+    :return: A Dash server
+    """
+    app = Dash(server=server, url_base_pathname=url)
 
     app.layout = html.Div([
         html.Iframe(
-            id='scatter',
+            id='bubble',
             style={'border-width': '0', 'width': '100%', 'height': '400px'}),
         dcc.Slider(2000, 2018, 1,
                    value=2007,
@@ -25,9 +28,15 @@ def add_dash(server):
 
     # Set up callbacks/backend
     @app.callback(
-        Output('scatter', 'srcDoc'),
+        Output('bubble', 'srcDoc'),
         Input('my-slider', 'value'))
     def plot_altair(year):
+        """
+        The function takes in a year and outputs the Altair chart for that year
+
+        :param year: The year to plot
+        :return: The Altair chart is being returned.
+        """
         chart = alt.Chart(df.query(f'year=={year}')).mark_point(
             filled=True, opacity=0.5).encode(
             alt.X('life_expectancy', scale=alt.Scale(domain=(50, 85))),

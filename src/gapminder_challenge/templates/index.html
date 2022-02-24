@@ -47,14 +47,10 @@
       justify-content: center;
       align-items: center;
       backface-visibility: hidden;
-    }
-
-    .front {
       border: 1px solid black;
     }
 
     .back {
-      border: 1px solid black;
       transform: rotateY(180deg);
     }
 
@@ -69,7 +65,7 @@
       /* Green background */
       /* border: 1px solid black; */
       /* Green border */
-      color: #5a189a;
+      color: black;
       /* White text */
       padding: 10px 24px;
       margin: 20px;
@@ -112,9 +108,6 @@
       btn3.style.backgroundColor = "#ee4266";
       btn3.style.color = "white";
       btn4.style.display = "block"
-      btn4.style.backgroundColor = "#5a189a";
-      btn4.style.color = "white";
-
 
     }
   </script>
@@ -132,13 +125,13 @@
     <div class="container">
       <div class="card">
         <div class="front">
-          <h1>Question 1</h1>
+          <h1>Challenge 1</h1>
           <p> What is the child mortality rate?</p>
           <div class="btn-group"" >
             <button onclick=" quiz1Func('10%')" id="btn1">10%</button>
             <button onclick="quiz1Func('20%')" id="btn2">20%</button>
             <button onclick="quiz1Func('30%')" id="btn3">30%</button>
-            <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore</button>
+            <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">
@@ -159,7 +152,7 @@
   <!-- PART 2 -->
   <div class="right">
     <div class="container">
-      <div class="card" onclick="flip(event)">
+      <div class="card" >
         <div class="front">
           <h1>This is the front 2</h1>
         </div>
@@ -175,7 +168,7 @@
   <!-- PART 3 -->
   <div class="left">
     <div class="container">
-      <div class="card" onclick="flip(event)">
+      <div class="card" >
         <div class="front">
           <h1>This is the front 3</h1>
         </div>
@@ -191,7 +184,7 @@
   <!-- PART 4 -->
   <div class="right">
     <div class="container">
-      <div class="card" onclick="flip(event)">
+      <div class="card">
         <div class="front">
           <h1>This is the front 4</h1>
         </div>

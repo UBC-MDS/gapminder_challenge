@@ -26,8 +26,8 @@
 
     .container {
       margin: 20px;
-      width: 600px;
-      height: 500px;
+      width: 650px;
+      height: 550px;
       perspective: 1000px;
       margin-left: auto;
       margin-right: auto;
@@ -50,29 +50,45 @@
     }
 
     .front {
-      border: 2px solid black;
-    }
-
-    .front:hover {
-      bottom: 2px;
-      left: 2px;
-      box-shadow: 0px 0px 20px 1px #000;
+      border: 1px solid black;
     }
 
     .back {
-      border: 2px solid black;
+      border: 1px solid black;
       transform: rotateY(180deg);
     }
 
-    .back:hover {
-      bottom: 2px;
-      right: 2px;
-      box-shadow: 0px 0px 20px 1px #000;
+    .btn-group {
+      /* border: 1px solid black; */
+      width: 50%;
+      height: 50%;
+    }
+
+    .btn-group button {
+      /* background-color: #04AA6D; */
+      /* Green background */
+      /* border: 1px solid black; */
+      /* Green border */
+      color: #5a189a;
+      /* White text */
+      padding: 10px 24px;
+      margin: 20px;
+      /* Some padding */
+      cursor: pointer;
+      /* Pointer/hand icon */
+      width: 100%;
+      /* Set a width if needed */
+      display: block;
+      /* Make the buttons appear below each other */
+      border-radius: 20px;
+      margin-left: auto;
+      margin-right: auto;
+
     }
   </style>
   <script>
     function flip(event) {
-      var element = event.currentTarget;
+      var element = event.currentTarget.closest(".card");
       if (element.className === "card") {
         if (element.style.transform == "rotateY(180deg)") {
           element.style.transform = "rotateY(0deg)";
@@ -82,6 +98,25 @@
         }
       }
     };
+    function quiz1Func(value) {
+
+      btn1 = document.getElementById("btn1");
+      btn2 = document.getElementById("btn2");
+      btn3 = document.getElementById("btn3");
+      btn4 = document.getElementById("btn4");
+
+      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#0ead69";    // correct answer is 20%
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#ee4266";
+      btn3.style.color = "white";
+      btn4.style.display = "block"
+      btn4.style.backgroundColor = "#5a189a";
+      btn4.style.color = "white";
+
+
+    }
   </script>
 
 </head>
@@ -95,21 +130,25 @@
 
   <div class="left">
     <div class="container">
-      <div class="card" onclick="flip(event)">
+      <div class="card">
         <div class="front">
           <h1>Question 1</h1>
           <p> What is the child mortality rate?</p>
-          <p> 10% </p>
-          <p> 20% </p>
-          <p> 30% </p>
+          <div class="btn-group"" >
+            <button onclick=" quiz1Func('10%')" id="btn1">10%</button>
+            <button onclick="quiz1Func('20%')" id="btn2">20%</button>
+            <button onclick="quiz1Func('30%')" id="btn3">30%</button>
+            <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore</button>
+          </div>
         </div>
         <div class="back">
           <iframe noresize="noresize" style="
         position: absolute;
         background: transparent;
-        width: 95%;
+        width: 100%;
         height: 100%;
-      " src={{app1}} frameborder="0">
+          border: 1px solid black;
+      " src={{app1}}>
           </iframe>
         </div>
       </div>

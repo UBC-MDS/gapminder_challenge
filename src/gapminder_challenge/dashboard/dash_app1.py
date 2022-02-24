@@ -19,10 +19,10 @@ def add_dash(server):
         html.Iframe(
             id='bubble',
             style={'border-width': '0', 'width': '100%', 'height': '400px'}),
-        dcc.Slider(2000, 2018, 1,
-                   value=2007,
+        dcc.Slider(2000, 2018, 2,
+                   value=2008,
                    id='my-slider',
-                   marks={str(year): str(year) for year in range(2000, 2019)}
+                   marks={str(year): str(year) for year in range(2000, 2019,2)}
                    ),
     ])
 

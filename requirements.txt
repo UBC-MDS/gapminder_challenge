@@ -1,5 +1,5 @@
 pandas
 gunicorn
 altair
-dash==2.1.0
-plotly==5.6.0
+dash
+plotly

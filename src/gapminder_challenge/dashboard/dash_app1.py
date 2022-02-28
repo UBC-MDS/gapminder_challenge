@@ -2,8 +2,8 @@ import pandas as pd
 from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
-df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')
-# df = pd.read_csv('data/raw/world-data-gapminder_raw.csv') # heroku deployment
+# df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
+df = pd.read_csv('data/raw/world-data-gapminder_raw.csv') # heroku deployment
 url = '/dash_app1/'
 
 def add_dash(server):

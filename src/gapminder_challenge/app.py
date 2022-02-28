@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from .dashboard import dash_app1
+from dashboard import dash_app1
 
 
 app = Flask(__name__)

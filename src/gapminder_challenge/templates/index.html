@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Gapminder Challenge</title>
+  <style>
+    .left {
+      float: left;
+      width: 50%;
+    }
+
+    .right {
+      float: left;
+      width: 50%;
+    }
+
+    .header {
+      text-align: center
+    }
+
+    div {
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      margin: 20px;
+      width: 650px;
+      height: 550px;
+      perspective: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card {
+      transition: transform 2s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .front,
+    .back {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border: 1px solid black;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .btn-group {
+      /* border: 1px solid black; */
+      width: 50%;
+      height: 50%;
+    }
+
+    .btn-group button {
+      /* background-color: #04AA6D; */
+      /* Green background */
+      /* border: 1px solid black; */
+      /* Green border */
+      color: black;
+      /* White text */
+      padding: 10px 24px;
+      margin: 20px;
+      /* Some padding */
+      cursor: pointer;
+      /* Pointer/hand icon */
+      width: 100%;
+      /* Set a width if needed */
+      display: block;
+      /* Make the buttons appear below each other */
+      border-radius: 20px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+  </style>
+  <script>
+    function flip(event) {
+      var element = event.currentTarget.closest(".card");
+      if (element.className === "card") {
+        if (element.style.transform == "rotateY(180deg)") {
+          element.style.transform = "rotateY(0deg)";
+        }
+        else {
+          element.style.transform = "rotateY(180deg)";
+        }
+      }
+    };
+    function quiz1Func(value) {
+
+      btn1 = document.getElementById("btn1");
+      btn2 = document.getElementById("btn2");
+      btn3 = document.getElementById("btn3");
+      btn4 = document.getElementById("btn4");
+
+      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#0ead69";    // correct answer is 20%
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#ee4266";
+      btn3.style.color = "white";
+      btn4.style.display = "block"
+
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="header">
+    <h1>Gapminder Challenge</h1>
+  </div>
+
+
+
+  <div class="left">
+    <div class="container">
+      <div class="card">
+        <div class="front">
+          <h1>Challenge 1</h1>
+          <p> What is the child mortality rate?</p>
+          <div class="btn-group"" >
+            <button onclick=" quiz1Func('10%')" id="btn1">10%</button>
+            <button onclick="quiz1Func('20%')" id="btn2">20%</button>
+            <button onclick="quiz1Func('30%')" id="btn3">30%</button>
+            <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore!</button>
+          </div>
+        </div>
+        <div class="back">
+          <iframe noresize="noresize" style="
+        position: absolute;
+        background: transparent;
+        width: 100%;
+        height: 100%;
+          border: 1px solid black;
+      " src={{app1}}>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PART 2 -->
+  <div class="right">
+    <div class="container">
+      <div class="card" >
+        <div class="front">
+          <h1>This is the front 2</h1>
+        </div>
+        <div class="back">
+          <h1>This is the back</h1>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PART 3 -->
+  <div class="left">
+    <div class="container">
+      <div class="card" >
+        <div class="front">
+          <h1>This is the front 3</h1>
+        </div>
+        <div class="back">
+          <h1>This is the back</h1>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PART 4 -->
+  <div class="right">
+    <div class="container">
+      <div class="card">
+        <div class="front">
+          <h1>This is the front 4</h1>
+        </div>
+        <div class="back">
+          <h1>This is the back</h1>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

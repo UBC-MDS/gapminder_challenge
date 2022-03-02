@@ -28,7 +28,7 @@ def add_dash(server):
                    ),
         dcc.Dropdown(df.country.unique(),
                      id='dropdown',
-                     value=['United States', 'Afghanistan'],
+                     value=['United States', 'Germany', 'Somalia', 'Malawi'],
                      multi=True),
     ])
 

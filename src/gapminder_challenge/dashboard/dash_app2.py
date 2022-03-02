@@ -23,8 +23,8 @@ def add_dash(server):
             style={'border-width': '0', 'width': '100%', 'height': '400px'}),
             html.Label([
                 'Zoom in years: ',
-                dcc.RangeSlider(1910, 2020, 10, value=[1910, 2020], id='year_range_slider',
-                    marks={str(year): str(year) for year in range(1910, 2030,10)}),
+                dcc.RangeSlider(1918, 2018, 10, value=[1918, 2018], id='year_range_slider',
+                    marks={str(year): str(year) for year in range(1918, 2028,10)}),
             ]),
             html.Label([
                 'See breakdown number by: ',

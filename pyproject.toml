@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dsci532_group12"
+name = "gapminder_challenge"
 version = "0.1.0"
 description = "Package for Data Visualization"
 authors = ["DSCI532_Group12"]

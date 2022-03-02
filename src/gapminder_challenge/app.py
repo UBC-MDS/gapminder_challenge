@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from dashboard import dash_app1
 
+
 app = Flask(__name__)
 app = dash_app1.add_dash(app)
 

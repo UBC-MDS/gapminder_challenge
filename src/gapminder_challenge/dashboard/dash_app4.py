@@ -4,7 +4,7 @@ import altair as alt
 
 # Read in the raw data and subset the data for analysis
 df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')
-df = df[["country", "year", "population", "region", 'income_group', "income"]]
+df = df[["country", "year", "population", "region", "income"]]
 
 # Define constant values
 YEAR_MIN = 1901
@@ -13,7 +13,6 @@ YEAR_INTERVAL = 10
 INCOME_UNIT = 1000000
 REGIONS = df["region"].unique()
 COUNTRIES = df["country"].unique()
-INCOME_GROUPS = df["income_group"].unique()
 url = '/dash_app4/'
 
 def add_dash(server):
@@ -59,7 +58,8 @@ def add_dash(server):
         """
         The function
         :param year_slider: The year range to plot
-        :param region_selector: Regions to plot
+        :param region_selector: Regions to filter by
+        :param inc_group_dropdown: Income groups to filter by
         :return: The Altair chart is being returned.
         """
         if region_dropdown == "":

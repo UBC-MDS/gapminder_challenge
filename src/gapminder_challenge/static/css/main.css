@@ -1,0 +1,119 @@
+  .left {
+      float: left;
+      width: 50%;
+    }
+
+    .right {
+      float: left;
+      width: 50%;
+    }
+
+    .header {
+      text-align: center
+    }
+
+    div {
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      margin: 20px;
+      width: 650px;
+      height: 550px;
+      perspective: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: Ubuntu;
+      font-size: 1rem;
+    }
+
+    .card {
+      transition: transform 2s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      background-color: white
+      
+    }
+
+    .front{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border: 1px solid black;
+    }
+
+    .back {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border: 1px solid black;
+      
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .btn-group {
+      /* border: 1px solid black; */
+      width: 50%;
+      height: 50%;
+    }
+
+    .btn-group button {
+      /* background-color: #04AA6D; */
+      /* Green background */
+      /* border: 1px solid black; */
+      /* Green border */
+      color: black;
+      /* White text */
+      padding: 10px 24px;
+      margin: 20px;
+      /* Some padding */
+      cursor: pointer;
+      /* Pointer/hand icon */
+      width: 100%;
+      /* Set a width if needed */
+      display: block;
+      /* Make the buttons appear below each other */
+      border-radius: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: rgb(105, 105, 143);
+      color: white;
+
+    }
+    .display-2 {
+      color: white;
+      font-size: 4rem;
+      font-weight: 500;
+      line-height: 0.5;
+      text-align: center; 
+      
+  }
+  .jumbotron {
+    background-color: rgb(248, 193, 42); 
+    font-family: Ubuntu; 
+    width: 100vw; 
+    margin-left: -63px; 
+    border-radius: 0px; 
+    padding: 5px;
+    margin-top: 0px;
+    
+}
+.lead {
+  text-align: center; 
+  color: white; 
+  font-family: Ubuntu;
+  font-size: 1.2rem;
+}
+
+
+

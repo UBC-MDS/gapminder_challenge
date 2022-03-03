@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Gapminder Challenge</title>
+
+       
   <style>
     .left {
       float: left;
@@ -23,6 +25,7 @@
       width: 100%;
       height: 100%;
     }
+
 
     .container {
       margin: 20px;
@@ -83,6 +86,10 @@
     }
   </style>
   <script>
+
+  
+
+
     function flip(event) {
       var element = event.currentTarget.closest(".card");
       if (element.className === "card") {
@@ -103,9 +110,25 @@
 
       btn1.style.backgroundColor = "#ee4266";
       btn1.style.color = "white";
-      btn2.style.backgroundColor = "#0ead69";    // correct answer is 20%
+      btn2.style.backgroundColor = "#0ead69";    // correct answer
       btn2.style.color = "white";
-      btn3.style.backgroundColor = "#ee4266";
+      btn3.style.backgroundColor = "#ee4266"; 
+      btn3.style.color = "white";
+      btn4.style.display = "block"
+
+    }
+    function quiz2Func(value) {
+
+      btn1 = document.getElementById("q2_btn1");
+      btn2 = document.getElementById("q2_btn2");
+      btn3 = document.getElementById("q2_btn3");
+      btn4 = document.getElementById("q2_btn4");
+
+      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
       btn3.style.color = "white";
       btn4.style.display = "block"
 
@@ -120,17 +143,18 @@
   </div>
 
 
+<!-- PART 1 -->
 
   <div class="left">
     <div class="container">
       <div class="card">
         <div class="front">
           <h1>Challenge 1</h1>
-          <p> What is the child mortality rate?</p>
+          <p>The countries in which continents has been the main CO2 emitter?</p>
           <div class="btn-group"" >
-            <button onclick=" quiz1Func('10%')" id="btn1">10%</button>
-            <button onclick="quiz1Func('20%')" id="btn2">20%</button>
-            <button onclick="quiz1Func('30%')" id="btn3">30%</button>
+            <button onclick=" quiz1Func()" id="btn1">Americas</button>
+            <button onclick="quiz1Func()" id="btn2">Europe</button>
+            <button onclick="quiz1Func()" id="btn3">Asia</button>
             <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore!</button>
           </div>
         </div>
@@ -149,15 +173,30 @@
   </div>
 
 
+
   <!-- PART 2 -->
   <div class="right">
     <div class="container">
-      <div class="card" >
+      <div class="card">
         <div class="front">
-          <h1>This is the front 2</h1>
+          <h1>Challenge 2</h1>
+          <p> The average number of children per woman in 1960 is 5.5, how about in 2010?</p>
+          <div class="btn-group"" >
+            <button onclick=" quiz2Func('a')" id="q2_btn1">5.0</button>
+            <button onclick="quiz2Func('b')" id="q2_btn2">0.9</button>
+            <button onclick="quiz2Func('c')" id="q2_btn3">3.0</button>
+            <button onclick="flip(event)" id="q2_btn4" style="display:none">Flip to Explore!</button>
+          </div>
         </div>
         <div class="back">
-          <h1>This is the back</h1>
+          <iframe noresize="noresize" style="
+          position: absolute;
+          background: transparent;
+          width: 100%;
+          height: 100%;
+            border: 1px solid black;
+        " src={{app2}}>
+          </iframe>
           </iframe>
         </div>
       </div>
@@ -168,12 +207,26 @@
   <!-- PART 3 -->
   <div class="left">
     <div class="container">
-      <div class="card" >
+      <div class="card">
         <div class="front">
-          <h1>This is the front 3</h1>
+          <h1>This is the Julien</h1>
+          <p>Question balh blah</p>
+          <div class="btn-group"" >
+                      <button onclick=" quiz1Func('10%')" id="btn1">10%</button>
+            <button onclick="quiz1Func('20%')" id="btn2">20%</button>
+            <button onclick="quiz1Func('30%')" id="btn3">30%</button>
+            <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore!</button>
+          </div>
         </div>
         <div class="back">
           <h1>This is the back</h1>
+          <iframe noresize="noresize" style="
+                  position: absolute;
+                  background: transparent;
+                  width: 100%;
+                  height: 100%;
+                    border: 1px solid black;
+                " src={{app3}}>
           </iframe>
         </div>
       </div>

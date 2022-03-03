@@ -46,10 +46,10 @@ def add_dash(server):
         :param countries: The countries to plot
         :return: The Altair chart is being returned.
         """
-        chart = alt.Chart(df.query(f'year=={year} and country=={countries}')).mark_bar(
+        chart = alt.Chart(df.query(f'year=={year} and country=={countries}'), title=f'Life Expectancy in {year}',).mark_bar(
             opacity=0.5).encode(
-            alt.X('life_expectancy'),
-            alt.Y('country', sort='-x'),
+            alt.X('life_expectancy', title='Life Expectancy'),
+            alt.Y('country', sort='-x', title='Country'),
             tooltip=['country', 'year', 'life_expectancy', ],
             color='country').interactive()
 

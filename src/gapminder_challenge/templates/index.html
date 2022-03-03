@@ -133,6 +133,23 @@
       btn4.style.display = "block"
 
     }
+
+    function quiz4Func(value) {
+
+      btn1 = document.getElementById("q4_btn1");
+      btn2 = document.getElementById("q4_btn2");
+      btn3 = document.getElementById("q4_btn3");
+      btn4 = document.getElementById("q4_btn4");
+
+      btn1.style.backgroundColor = "#0ead69"; // Correct answer
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#ee4266"; 
+      btn3.style.color = "white";
+      btn4.style.display = "block"
+
+    }
   </script>
 
 </head>
@@ -239,10 +256,24 @@
     <div class="container">
       <div class="card">
         <div class="front">
-          <h1>This is the front 4</h1>
+          <h1>Challenge 4</h1>
+          <p> Which region experienced the greatest increase in income per capita during the last 50 years?</p>
+          <div class="btn-group" >
+            <button onclick=" quiz4Func('1')" id="q4_btn1">Oceania</button>
+            <button onclick="quiz4Func('2')" id="q4_btn2">Europe</button>
+            <button onclick="quiz4Func('3')" id="q4_btn3">Asia</button>
+            <button onclick="flip(event)" id="q4_btn4" style="display:none">Flip to Explore!</button>
+          </div>
         </div>
         <div class="back">
-          <h1>This is the back</h1>
+          <iframe noresize="noresize" style="
+          position: absolute;
+          background: transparent;
+          width: 100%;
+          height: 100%;
+            border: 1px solid black;
+        " src={{app4}}>
+          </iframe>
           </iframe>
         </div>
       </div>

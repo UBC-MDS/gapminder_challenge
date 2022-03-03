@@ -11,8 +11,9 @@ YEAR_MIN = 1901
 YEAR_MAX = 2018
 YEAR_INTERVAL = 10
 INCOME_UNIT = 1000000
-
-
+REGIONS = df["region"].unique()
+COUNTRIES = df["country"].unique()
+INCOME_GROUPS = df["income_group"].unique()
 url = '/dash_app4/'
 
 def add_dash(server):
@@ -37,40 +38,56 @@ def add_dash(server):
                    marks={str(year): str(year)
                           for year in range(YEAR_MIN, YEAR_MAX, YEAR_INTERVAL)}
                    )
-            ]),
-        
-        #            ,
-        # dcc.Dropdown(df_year.region.unique(),
-        #              id='dropdown',
-        #              value=['Europe', 'Asia', 'Americas', 'Africa' , 'Oceania'],
-        #              multi=True)
+            ]),     
+            html.Label([
+                'Filter by Geographic Region: ',
+                    dcc.Dropdown(id="region_dropdown",
+                    value="",
+                    options=REGIONS,
+                    multi=True)
+             ])
     ])
 
     # Set up callbacks/backend
     @app.callback(
     Output('main_chart', 'srcDoc'),
-    Input('year_slider', 'value')
-    # ,
-    # Input('dropdown', 'value')
+    Input('year_slider', 'value'),
+    Input('region_dropdown', 'value')
     )
-    def plot_altair(year_slider):
+
+    def plot_altair(year_slider, region_dropdown):
         """
         The function
         :param year_slider: The year range to plot
-        :param 
+        :param region_selector: Regions to plot
         :return: The Altair chart is being returned.
         """
-        df_by_year = df.groupby(["year"]).sum()
-        df_by_year["income_per_capita"] = round(df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
-        df_by_year = df_by_year.reset_index()
-        chart = alt.Chart(df_by_year.query(
-            f'year>={year_slider[0]} and year<={year_slider[1]}'),
-            title="Income Per Capita Has Been Rising"
-            ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.3)
-            ).encode(
-                alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]])),
-                alt.Y('income_per_capita', title='Income Per Capita'),
-                tooltip = ["year", "income_per_capita"]).interactive()
+        if region_dropdown == "":
+            df_by_year = df.groupby(["year"]).sum()
+            df_by_year["income_per_capita"] = round(df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+            df_by_year = df_by_year.reset_index()
+            chart = alt.Chart(df_by_year.query(
+                f'year>={year_slider[0]} and year<={year_slider[1]}'),
+                title="Income Per Capita Has Been Rising"
+                ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.3)
+                ).encode(
+                    alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]])),
+                    alt.Y('income_per_capita', title='Income Per Capita'),
+                    tooltip = ["year", "income_per_capita"]).interactive()
+        else:
+            df_subset_region = df[df.region.isin(region_dropdown)]
+            df_by_year = df_subset_region.groupby(["region", "year"]).sum()
+            df_by_year["income_per_capita"] = round(df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+            df_by_year = df_by_year.reset_index()
+            chart = alt.Chart(df_by_year.query(
+                f'year>={year_slider[0]} and year<={year_slider[1]}'),
+                title="Income Per Capita Has Been Rising"
+                ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.5)
+                ).encode(
+                    alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]])),
+                    alt.Y('income_per_capita', title='Income Per Capita'),
+                    alt.Color("region", title = "Region"),
+                    tooltip = ["year", "income_per_capita"])
        
 
         return (chart).to_html()

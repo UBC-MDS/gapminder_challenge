@@ -52,7 +52,7 @@ def add_dash(server):
             df_q3 = df.groupby(['sub_region', 'year']).mean()
             df_q3 = df_q3.reset_index()
             chart = alt.Chart(df_q3.query(f'year>={year_range_slider[0]} and year<={year_range_slider[1]}'), 
-                title="Average Life Expectancy").mark_line().encode(
+                title=f"Average Life Expectancy from {year_range_slider[0]} to {year_range_slider[1]}").mark_line().encode(
                 y=alt.Y("life_expectancy", title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
                color=alt.Color('sub_region', legend=None),

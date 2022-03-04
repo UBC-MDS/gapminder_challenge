@@ -134,6 +134,23 @@
 
     }
 
+    function quiz3Func(value) {
+
+      btn1 = document.getElementById("q3_btn1");
+      btn2 = document.getElementById("q3_btn2");
+      btn3 = document.getElementById("q3_btn3");
+      btn4 = document.getElementById("q3_btn4");
+
+      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
+      btn3.style.color = "white";
+      btn4.style.display = "block"
+
+    }
+
     function quiz4Func(value) {
 
       btn1 = document.getElementById("q4_btn1");
@@ -146,9 +163,6 @@
       btn2.style.backgroundColor = "#ee4266";
       btn2.style.color = "white";
       btn3.style.backgroundColor = "#ee4266"; 
-      btn3.style.color = "white";
-      btn4.style.display = "block"
-
     }
   </script>
 
@@ -226,29 +240,30 @@
     <div class="container">
       <div class="card">
         <div class="front">
-          <h1>This is the Julien</h1>
-          <p>Question balh blah</p>
+          <h1>Challenge 3</h1>
+          <p> Average life expectancy was about 34 in Sub-Saharran Africa in 1940. What about in 2018?</p>
           <div class="btn-group"" >
-                      <button onclick=" quiz1Func('10%')" id="btn1">10%</button>
-            <button onclick="quiz1Func('20%')" id="btn2">20%</button>
-            <button onclick="quiz1Func('30%')" id="btn3">30%</button>
-            <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore!</button>
+            <button onclick=" quiz3Func('a')" id="q3_btn1">48</button>
+            <button onclick="quiz3Func('b')" id="q3_btn2">57</button>
+            <button onclick="quiz3Func('c')" id="q3_btn3">64</button>
+            <button onclick="flip(event)" id="q3_btn4" style="display:none">Flip to Explore!</button>
           </div>
         </div>
-        <div class="back">
-          <h1>This is the back</h1>
-          <iframe noresize="noresize" style="
-                  position: absolute;
-                  background: transparent;
-                  width: 100%;
-                  height: 100%;
-                    border: 1px solid black;
-                " src={{app3}}>
-          </iframe>
+          <div class="back">
+            <iframe noresize="noresize" style="
+            position: absolute;
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+            " src={{app3}}>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 
 
   <!-- PART 4 -->

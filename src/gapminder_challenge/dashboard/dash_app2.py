@@ -23,7 +23,7 @@ def add_dash(server):
             style={'border-width': '0', 'width': '100%', 'height': '400px'}),
             html.Label([
                 'Zoom in years: ',
-                dcc.RangeSlider(1918, 2018, 10, value=[1918, 2018], id='year_range_slider',
+                dcc.RangeSlider(1918, 2018, 10, value=[1918, 2018],  id='year_range_slider',
                     marks={str(year): str(year) for year in range(1918, 2028,10)}),
             ]),
             html.Label([
@@ -52,6 +52,8 @@ def add_dash(server):
         :return: The Altair chart is being returned.
         """
         filter = filter_dropdown
+        title_params = alt.TitleParams("Average Number of Children", subtitle=["Click on legend entries to mute the corresponding lines"])
+
         if filter=="all" or filter=='':
             df_by_year = df.groupby(["year"]).mean()    
             df_by_year = df_by_year.reset_index()
@@ -68,7 +70,7 @@ def add_dash(server):
             # add interactive click
             click = alt.selection_multi(fields=[filter], bind='legend')
             chart = alt.Chart(df_by_year.query(f'year>={year_range_slider[0]} and year<={year_range_slider[1]}'), 
-                title="Average Number of Children").mark_line().encode(
+                title=title_params).mark_line().encode(
                 y=alt.Y("children_per_woman", title="Children per woman"),
                 x=alt.X("year", title="Year"),
                 color=filter,

@@ -67,7 +67,7 @@ def add_dash(server):
                 title="Average Life Expectancy").mark_line().encode(
                 y=alt.Y("life_expectancy", title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
-                color='sub_region',
+                color=alt.Color('sub_region', legend=None),
                 tooltip=['year', 'life_expectancy']).interactive()
         
         return chart.to_html()

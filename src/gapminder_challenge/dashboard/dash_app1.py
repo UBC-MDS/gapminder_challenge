@@ -2,9 +2,13 @@ import pandas as pd
 from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
+
 # df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
-df = pd.read_csv('data/raw/world-data-gapminder_raw.csv') # heroku deployment
+df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
+df_year = df.groupby(['year', 'region']).agg({'co2_per_capita': 'sum'}).reset_index()
+
 url = '/dash_app1/'
+
 
 def add_dash(server):
     """
@@ -18,35 +22,49 @@ def add_dash(server):
 
     app.layout = html.Div([
         html.Iframe(
-            id='bubble',
+            id='bar_chart',
             style={'border-width': '0', 'width': '100%', 'height': '400px'}),
-        dcc.Slider(2000, 2018, 2,
-                   value=2008,
-                   id='my-slider',
-                   marks={str(year): str(year) for year in range(2000, 2019,2)}
+        dcc.Slider(1914, 2014, 2,
+                   value=1914,
+                   id='slider',
+                   marks={str(year): str(year)
+                          for year in range(1914, 2015, 10)}
                    ),
+        dcc.Dropdown(df_year.region.unique(),
+                     id='dropdown',
+                     value=['Europe', 'Asia', 'Americas', 'Africa' , 'Oceania'],
+                     multi=True),
     ])
 
     # Set up callbacks/backend
     @app.callback(
-        Output('bubble', 'srcDoc'),
-        Input('my-slider', 'value'))
-    def plot_altair(year):
+    Output('bar_chart', 'srcDoc'),
+    Input('slider', 'value'),
+    Input('dropdown', 'value'))
+    def plot_altair(year, regions):
         """
-        The function takes in a year and outputs the Altair chart for that year
+        The function takes in a year, countries and 
+        outputs the Altair chart for that year
 
         :param year: The year to plot
+        :param countries: The countries to plot
         :return: The Altair chart is being returned.
         """
-        chart = alt.Chart(df.query(f'year=={year}')).mark_point(
-            filled=True, opacity=0.5).encode(
-            alt.X('life_expectancy', scale=alt.Scale(domain=(50, 85))),
-            alt.Y('income', scale=alt.Scale(
-                type='log', base=10, domain=(1000, 80000))),
-            size=alt.Size('population', legend=None),
-            tooltip=['country', 'year', 'life_expectancy',
-                     'income', 'population'],
+        chart = alt.Chart(df_year.query(f'year=={year} and region=={regions}'), title=f'CO2 per Capita {year}',).mark_bar(
+            opacity=0.5).encode(
+            alt.X('co2_per_capita', title='CO2 per Capita'),
+            alt.Y('region', sort='-x', title='Region'),
+            tooltip=['region', 'year', 'co2_per_capita', ],
             color='region').interactive()
-        return chart.to_html()
+
+        # text = chart.mark_text(
+        #     align='left',
+        #     baseline='middle',
+        #     dx=3  # Nudges text to right so it doesn't appear on top of the bar
+        # ).encode(
+        #     text='co2_per_capita:Q'
+        # )
+
+        return (chart).to_html()
 
     return app.server

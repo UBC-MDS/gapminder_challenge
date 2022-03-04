@@ -4,84 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Gapminder Challenge</title>
-  <style>
-    .left {
-      float: left;
-      width: 50%;
-    }
-
-    .right {
-      float: left;
-      width: 50%;
-    }
-
-    .header {
-      text-align: center
-    }
-
-    div {
-      width: 100%;
-      height: 100%;
-    }
-
-    .container {
-      margin: 20px;
-      width: 650px;
-      height: 550px;
-      perspective: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .card {
-      transition: transform 2s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    .front,
-    .back {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      backface-visibility: hidden;
-      border: 1px solid black;
-    }
-
-    .back {
-      transform: rotateY(180deg);
-    }
-
-    .btn-group {
-      /* border: 1px solid black; */
-      width: 50%;
-      height: 50%;
-    }
-
-    .btn-group button {
-      /* background-color: #04AA6D; */
-      /* Green background */
-      /* border: 1px solid black; */
-      /* Green border */
-      color: black;
-      /* White text */
-      padding: 10px 24px;
-      margin: 20px;
-      /* Some padding */
-      cursor: pointer;
-      /* Pointer/hand icon */
-      width: 100%;
-      /* Set a width if needed */
-      display: block;
-      /* Make the buttons appear below each other */
-      border-radius: 20px;
-      margin-left: auto;
-      margin-right: auto;
-
-    }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <script>
     function flip(event) {
       var element = event.currentTarget.closest(".card");
@@ -103,22 +26,75 @@
 
       btn1.style.backgroundColor = "#ee4266";
       btn1.style.color = "white";
-      btn2.style.backgroundColor = "#0ead69";    // correct answer is 20%
+      btn2.style.backgroundColor = "#0ead69";    // correct answer
       btn2.style.color = "white";
-      btn3.style.backgroundColor = "#ee4266";
+      btn3.style.backgroundColor = "#ee4266"; 
       btn3.style.color = "white";
       btn4.style.display = "block"
 
+    }
+    function quiz2Func(value) {
+
+      btn1 = document.getElementById("q2_btn1");
+      btn2 = document.getElementById("q2_btn2");
+      btn3 = document.getElementById("q2_btn3");
+      btn4 = document.getElementById("q2_btn4");
+
+      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
+      btn3.style.color = "white";
+      btn4.style.display = "block"
+
+    }
+
+    function quiz3Func(value) {
+
+      btn1 = document.getElementById("q3_btn1");
+      btn2 = document.getElementById("q3_btn2");
+      btn3 = document.getElementById("q3_btn3");
+      btn4 = document.getElementById("q3_btn4");
+
+      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
+      btn3.style.color = "white";
+      btn4.style.display = "block"
+
+    }
+
+    function quiz4Func(value) {
+
+      btn1 = document.getElementById("q4_btn1");
+      btn2 = document.getElementById("q4_btn2");
+      btn3 = document.getElementById("q4_btn3");
+      btn4 = document.getElementById("q4_btn4");
+
+      btn1.style.backgroundColor = "#0ead69"; // Correct answer
+      btn1.style.color = "white";
+      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.color = "white";
+      btn3.style.backgroundColor = "#ee4266";
+      btn4.style.display = "block"
     }
   </script>
 
 </head>
 
 <body>
-  <div class="header">
-    <h1>Gapminder Challenge</h1>
+  <div class="jumbotron">
+    <h1 class="display-2">Gapminder Challenge</h1>
+    <p class="lead">Take the challenges below to see how
+      you understand global issues such as
+      healthcare and finance development. <br>Test yourselves now!</p>
   </div>
 
+
+<!-- PART 1 -->
 
 
   <div class="left">
@@ -126,11 +102,11 @@
       <div class="card">
         <div class="front">
           <h1>Challenge 1</h1>
-          <p> What is the child mortality rate?</p>
+          <p>The countries in which continents has been the main CO2 emitter?</p>
           <div class="btn-group"" >
-            <button onclick=" quiz1Func('10%')" id="btn1">10%</button>
-            <button onclick="quiz1Func('20%')" id="btn2">20%</button>
-            <button onclick="quiz1Func('30%')" id="btn3">30%</button>
+            <button onclick=" quiz1Func()" id="btn1">Americas</button>
+            <button onclick="quiz1Func()" id="btn2">Europe</button>
+            <button onclick="quiz1Func()" id="btn3">Asia</button>
             <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore!</button>
           </div>
         </div>
@@ -149,15 +125,30 @@
   </div>
 
 
+
   <!-- PART 2 -->
   <div class="right">
     <div class="container">
-      <div class="card" >
+      <div class="card">
         <div class="front">
-          <h1>This is the front 2</h1>
+          <h1>Challenge 2</h1>
+          <p> The average number of children per woman in 1960 is 5.5, how about in 2010?</p>
+          <div class="btn-group"" >
+            <button onclick=" quiz2Func('a')" id="q2_btn1">5.0</button>
+            <button onclick="quiz2Func('b')" id="q2_btn2">0.9</button>
+            <button onclick="quiz2Func('c')" id="q2_btn3">3.0</button>
+            <button onclick="flip(event)" id="q2_btn4" style="display:none;">Flip to
+              Explore!</button>
+          </div>
         </div>
         <div class="back">
-          <h1>This is the back</h1>
+          <iframe noresize="noresize" style="
+          position: absolute;
+          background: transparent;
+          width: 100%;
+          height: 100%;
+          border: 1px solid black;
+        " src={{app2}}>
           </iframe>
         </div>
       </div>
@@ -168,17 +159,31 @@
   <!-- PART 3 -->
   <div class="left">
     <div class="container">
-      <div class="card" >
+      <div class="card">
         <div class="front">
-          <h1>This is the front 3</h1>
+          <h1>Challenge 3</h1>
+          <p> Average life expectancy was about 34 in Sub-Saharran Africa in 1940. What about in 2018?</p>
+          <div class="btn-group">
+            <button onclick=" quiz3Func('a')" id="q3_btn1">48</button>
+            <button onclick="quiz3Func('b')" id="q3_btn2">57</button>
+            <button onclick="quiz3Func('c')" id="q3_btn3">64</button>
+            <button onclick="flip(event)" id="q3_btn4" style="display:none">Flip to Explore!</button>
+          </div>
         </div>
-        <div class="back">
-          <h1>This is the back</h1>
-          </iframe>
+          <div class="back">
+            <iframe noresize="noresize" style="
+            position: absolute;
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+            " src={{app3}}>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
 
 
   <!-- PART 4 -->
@@ -186,10 +191,23 @@
     <div class="container">
       <div class="card">
         <div class="front">
-          <h1>This is the front 4</h1>
+          <h1>Challenge 4</h1>
+          <p> Which region experienced the greatest increase in income per capita during the last 50 years?</p>
+          <div class="btn-group" >
+            <button onclick=" quiz4Func('1')" id="q4_btn1">Oceania</button>
+            <button onclick="quiz4Func('2')" id="q4_btn2">Europe</button>
+            <button onclick="quiz4Func('3')" id="q4_btn3">Asia</button>
+            <button onclick="flip(event)" id="q4_btn4" style="display:none">Flip to Explore!</button>
+          </div>
         </div>
         <div class="back">
-          <h1>This is the back</h1>
+          <iframe noresize="noresize" style="
+          position: absolute;
+          background: transparent;
+          width: 100%;
+          height: 100%;
+            border: 1px solid black;
+        " src={{app4}}>
           </iframe>
         </div>
       </div>

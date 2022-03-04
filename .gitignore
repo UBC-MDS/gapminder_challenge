@@ -141,4 +141,3 @@ dmypy.json
 # MacOS
 .DS_Store
 src/gapminder_challenge/gapminder_challenge.code-workspace
-src/gapminder_challenge/data.ipynb

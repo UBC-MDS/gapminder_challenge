@@ -55,7 +55,7 @@ def add_dash(server):
                 title=f"Average Life Expectancy from {year_range_slider[0]} to {year_range_slider[1]}").mark_line().encode(
                 y=alt.Y("life_expectancy", title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
-               color=alt.Color('sub_region', legend=None),
+                color=alt.Color('sub_region'),
                 tooltip=['year', 'life_expectancy']).interactive()
         else: 
             # only show the line for selected filter region
@@ -64,7 +64,8 @@ def add_dash(server):
             df_q3 = df_q3.reset_index()  
 
             chart = alt.Chart(df_q3.query(f'year>={year_range_slider[0]} and year<={year_range_slider[1]}'), 
-                title=f"Average Life Expectancy from {year_range_slider[0]} to {year_range_slider[1]} in {filter_dropdown}").mark_line().encode(
+                title=[f"Average Life Expectancy in {filter}",
+                f"from {year_range_slider[0]} to {year_range_slider[1]}"]).mark_line().encode(
                 y=alt.Y("life_expectancy", title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
                 color=alt.Color('sub_region', legend=None),

@@ -4,92 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Gapminder Challenge</title>
-
-       
-  <style>
-    .left {
-      float: left;
-      width: 50%;
-    }
-
-    .right {
-      float: left;
-      width: 50%;
-    }
-
-    .header {
-      text-align: center
-    }
-
-    div {
-      width: 100%;
-      height: 100%;
-    }
-
-
-    .container {
-      margin: 20px;
-      width: 650px;
-      height: 550px;
-      perspective: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .card {
-      transition: transform 2s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    .front,
-    .back {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      backface-visibility: hidden;
-      border: 1px solid black;
-    }
-
-    .back {
-      transform: rotateY(180deg);
-    }
-
-    .btn-group {
-      /* border: 1px solid black; */
-      width: 50%;
-      height: 50%;
-    }
-
-    .btn-group button {
-      /* background-color: #04AA6D; */
-      /* Green background */
-      /* border: 1px solid black; */
-      /* Green border */
-      color: black;
-      /* White text */
-      padding: 10px 24px;
-      margin: 20px;
-      /* Some padding */
-      cursor: pointer;
-      /* Pointer/hand icon */
-      width: 100%;
-      /* Set a width if needed */
-      display: block;
-      /* Make the buttons appear below each other */
-      border-radius: 20px;
-      margin-left: auto;
-      margin-right: auto;
-
-    }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <script>
-
-  
-
-
     function flip(event) {
       var element = event.currentTarget.closest(".card");
       if (element.className === "card") {
@@ -170,12 +86,16 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1>Gapminder Challenge</h1>
+  <div class="jumbotron">
+    <h1 class="display-2">Gapminder Challenge</h1>
+    <p class="lead">Take the challenges below to see how
+      you understand global issues such as
+      healthcare and finance development. <br>Test yourselves now!</p>
   </div>
 
 
 <!-- PART 1 -->
+
 
   <div class="left">
     <div class="container">
@@ -217,7 +137,8 @@
             <button onclick=" quiz2Func('a')" id="q2_btn1">5.0</button>
             <button onclick="quiz2Func('b')" id="q2_btn2">0.9</button>
             <button onclick="quiz2Func('c')" id="q2_btn3">3.0</button>
-            <button onclick="flip(event)" id="q2_btn4" style="display:none">Flip to Explore!</button>
+            <button onclick="flip(event)" id="q2_btn4" style="display:none;">Flip to
+              Explore!</button>
           </div>
         </div>
         <div class="back">
@@ -226,7 +147,7 @@
           background: transparent;
           width: 100%;
           height: 100%;
-            border: 1px solid black;
+          border: 1px solid black;
         " src={{app2}}>
           </iframe>
         </div>
@@ -287,7 +208,6 @@
           height: 100%;
             border: 1px solid black;
         " src={{app4}}>
-          </iframe>
           </iframe>
         </div>
       </div>

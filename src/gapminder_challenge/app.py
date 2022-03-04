@@ -12,5 +12,5 @@ app = dash_app3.add_dash(app)
 @app.route('/')
 
 def index():
-    return render_template('index.html', app1=dash_app1.url, app2=dash_app2.url)
+    return render_template('index.html', app1=dash_app1.url, app2=dash_app2.url, app3=dash_app3.url)
 

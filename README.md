@@ -32,9 +32,6 @@ Here is an example sketch of the app:
 
 ## Installation
 
-```bash
-TODO
-```
 
 ## Usage
 
@@ -42,7 +39,9 @@ TODO
 
 ## Contributing
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Our app is still under active development. We'd love your feedback along the way.
+
+Interested in contributing? We can certainly use your expertise in user experience design, data validation, front end development, and documentation. Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
 
 ## License
 

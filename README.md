@@ -1,6 +1,15 @@
-# gapminder_challenge
+# [Gapminder Challenge App](https://gapminder-challenge.herokuapp.com/)
 
-Package for Data Visualization
+## Welcome! 
+
+Thank you for visiting the Gapminder Challenge app project repository.
+
+This document is aimed to give you some information about our project. Please scroll down to find out more.
+
+
+## Project Motivation
+
+This project is designed to augment the existing gapminder [worldview upgrader](https://upgrader.gapminder.org/) tool. [Gapminder](https://www.gapminder.org/) is an NGO founded to address systematic misconceptions about global development. Gapminder provides free-to-access data and teaching material on global development based on reliable statistics. Their worldview upgrader involves participants answering questions about various topics linked to [UN development goals](https://sdgs.un.org/goals), and being provided correct answers with accompanying explanations. Our project proposes to augment the experience of the worldview upgrader by providing interactive visualizations along with answers to questions related to UN development goals, leveraging the [Gapminder dataset](https://cran.r-project.org/web/packages/gapminder/README.html). This allows our users to explore and manipulate the data supporting the answers to the questions, providing a dynamic and enriched learning experience.
 
 ## App Description
 

@@ -1,5 +1,7 @@
 # Gapminder Challenge App
 
+![](images/gapminder-animation.gif)
+
 ## Welcome!
 
 Thank you for visiting the Gapminder Challenge app project repository.
@@ -45,9 +47,26 @@ Our app is still under active development. We'd love your feedback along the way
 
 Interested in contributing? We can certainly use your expertise in user experience design, data validation, front end development, and documentation. Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
 
+For this project, we used `Dash` for dashboarding, `Altair` and `Plotly` for charts, and `Heroku` for deployment. Do check out the following links to learn more about them:
+
+* [Dash Python User Guide](https://dash.plotly.com/)
+* [Dash interactive visualization](https://dash.plotly.com/interactive-graphing)
+* [Altair documentation](https://altair-viz.github.io/index.html)
+* [Plotly Python documentation](https://plotly.com/python/)
+* [Deploying Dash (on Heroku)](https://dash.plotly.com/deployment)
+
 ## License and Contributors
 
-`gapminder_challenge` was created by Son Chau, Julien Gordon, Irene Yan, and Vanessa Yuen. It is licensed under the terms of the MIT license.
+`gapminder_challenge` was created by:
+* Son Chau
+
+* Julien Gordon
+
+* Irene Yan
+
+* Vanessa Yuen
+
+It is licensed under the terms of the MIT license.
 
 ## Credits
 

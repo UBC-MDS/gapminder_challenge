@@ -2,7 +2,7 @@
 
 Link to the app: https://gapminder-challenge.herokuapp.com/
 
-![](images/gapminder-animation.gif)
+![](images/gapminder_animation.gif)
 
 ## Welcome!
 

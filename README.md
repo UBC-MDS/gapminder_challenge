@@ -43,11 +43,7 @@ Here is an example sketch of the app:
 
 ## Installation
 
-Since this project uses [poetry](), you can install our app at the current location by using:
-
-``` bash
-pip install git+https://github.com/UBC-MDS/gapminder_challenge -t
-```
+TODO
 
 ## Get Involved
 

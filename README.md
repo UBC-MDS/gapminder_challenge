@@ -1,15 +1,22 @@
 # Gapminder Challenge App
 
-## The App
+## Welcome!
 
-Our app is hosted on [Heroku](heroku.com). Take the challenges [here](https://gapminder-challenge.herokuapp.com/) to see how you understand global issues such as healthcare and finance development. Test yourselves now! 
-
-## Welcome! 
-
-Thank you for visiting the Gapminder Challenge app project repository. 
+Thank you for visiting the Gapminder Challenge app project repository.
 
 This document is aimed to give you some information about our project. Please scroll down to find out more.
 
+## The App
+
+Our app is hosted on Heroku. Take the challenges [here](https://gapminder-challenge.herokuapp.com/) to see how you understand global issues. You will be able to:
+
+* know immediately if your worldview is up-to-date
+
+* see visual plots of the underlying data
+
+* interact with the app by filtering year range, region, and more
+
+Test yourselves now!
 
 ## Project Motivation
 

@@ -72,8 +72,8 @@ def add_dash(server):
                 title="Income Per Capita Has Been Rising"
                 ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.3)
                 ).encode(
-                    alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]])),
-                    alt.Y('income_per_capita', title='Income Per Capita'),
+                    alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]], round=True)),
+                    alt.Y('income_per_capita', title='Income Per Capita (in US$)'),
                     tooltip = ["year", "income_per_capita"]).interactive()
         else:
             df_subset_region = df[df.region.isin(region_dropdown)]
@@ -85,8 +85,8 @@ def add_dash(server):
                 title="Income Per Capita Has Been Rising"
                 ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.5)
                 ).encode(
-                    alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]])),
-                    alt.Y('income_per_capita', title='Income Per Capita'),
+                    alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]], round=True)),
+                    alt.Y('income_per_capita', title='Income Per Capita (in US$)'),
                     alt.Color("region", title = "Region"),
                     tooltip = ["year", "income_per_capita"])
        

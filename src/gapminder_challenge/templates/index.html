@@ -28,7 +28,7 @@
       btn1.style.color = "white";
       btn2.style.backgroundColor = "#0ead69";    // correct answer
       btn2.style.color = "white";
-      btn3.style.backgroundColor = "#ee4266"; 
+      btn3.style.backgroundColor = "#ee4266";
       btn3.style.color = "white";
       btn4.style.display = "block"
 
@@ -74,9 +74,9 @@
       btn3 = document.getElementById("q4_btn3");
       btn4 = document.getElementById("q4_btn4");
 
-      btn1.style.backgroundColor = "#0ead69"; // Correct answer
+      btn1.style.backgroundColor = "#ee4266"; 
       btn1.style.color = "white";
-      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.backgroundColor = "#0ead69";// Correct answer
       btn2.style.color = "white";
       btn3.style.backgroundColor = "#ee4266";
       btn4.style.display = "block"
@@ -94,7 +94,7 @@
   </div>
 
 
-<!-- PART 1 -->
+  <!-- PART 1 -->
 
 
   <div class="left">
@@ -107,18 +107,24 @@
             <button onclick=" quiz1Func()" id="btn1">Americas</button>
             <button onclick="quiz1Func()" id="btn2">Europe</button>
             <button onclick="quiz1Func()" id="btn3">Asia</button>
-            <button onclick="flip(event)" id="btn4" style="display:none">Flip to Explore!</button>
+            <br>
+            <button onclick="flip(event)" id="btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">
-          <iframe noresize="noresize" style="
+          <div class="flip_button">
+            <button onclick="flip(event)" id="btn5">Back</button>
+          </div>
+          <div>
+            <iframe noresize="noresize" style="
         position: absolute;
         background: transparent;
         width: 100%;
         height: 100%;
-          border: 1px solid black;
+          border: 0px solid black;
       " src={{app1}}>
-          </iframe>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -133,23 +139,29 @@
         <div class="front">
           <h1>Challenge 2</h1>
           <p> The average number of children per woman in 1960 is 5.5, how about in 2010?</p>
-          <div class="btn-group"" >
+          <div class="btn-group">
             <button onclick=" quiz2Func('a')" id="q2_btn1">5.0</button>
             <button onclick="quiz2Func('b')" id="q2_btn2">0.9</button>
             <button onclick="quiz2Func('c')" id="q2_btn3">3.0</button>
-            <button onclick="flip(event)" id="q2_btn4" style="display:none;">Flip to
+            <br>
+            <button onclick="flip(event)" id="q2_btn4" style="display:none; width:50%">Flip to
               Explore!</button>
           </div>
         </div>
         <div class="back">
-          <iframe noresize="noresize" style="
+          <div class="flip_button">
+            <button onclick="flip(event)" id="btn5">Back</button>
+          </div>
+          <div>
+            <iframe noresize="noresize" style="
           position: absolute;
           background: transparent;
           width: 100%;
           height: 100%;
-          border: 1px solid black;
+          border: 0px solid black;
         " src={{app2}}>
-          </iframe>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -167,22 +179,29 @@
             <button onclick=" quiz3Func('a')" id="q3_btn1">48</button>
             <button onclick="quiz3Func('b')" id="q3_btn2">57</button>
             <button onclick="quiz3Func('c')" id="q3_btn3">64</button>
-            <button onclick="flip(event)" id="q3_btn4" style="display:none">Flip to Explore!</button>
+            <br>
+            <button onclick="flip(event)" id="q3_btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
-          <div class="back">
+        <div class="back">
+          <div class="flip_button">
+            <button onclick="flip(event)" id="q3_btn5">Back</button>
+          </div>
+          <div>
             <iframe noresize="noresize" style="
             position: absolute;
             background: transparent;
             width: 100%;
             height: 100%;
-            border: 1px solid black;
+            border: 0px solid black;
             " src={{app3}}>
             </iframe>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
 
 
 
@@ -193,25 +212,32 @@
         <div class="front">
           <h1>Challenge 4</h1>
           <p> Which region experienced the greatest increase in income per capita during the last 50 years?</p>
-          <div class="btn-group" >
+          <div class=" btn-group">
             <button onclick=" quiz4Func('1')" id="q4_btn1">Oceania</button>
             <button onclick="quiz4Func('2')" id="q4_btn2">Europe</button>
             <button onclick="quiz4Func('3')" id="q4_btn3">Asia</button>
-            <button onclick="flip(event)" id="q4_btn4" style="display:none">Flip to Explore!</button>
+            <br>
+            <button onclick="flip(event)" id="q4_btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">
-          <iframe noresize="noresize" style="
-          position: absolute;
-          background: transparent;
-          width: 100%;
-          height: 100%;
-            border: 1px solid black;
-        " src={{app4}}>
-          </iframe>
+          <div class="flip_button">
+            <button onclick="flip(event)" id="q4_btn5">Back</button>
+          </div>
+          <div>
+            <iframe noresize="noresize" style="
+      position: absolute;
+      background: transparent;
+      width: 100%;
+      height: 100%;
+        border: 0px solid black;
+    " src={{app4}}>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 

@@ -114,6 +114,25 @@
   font-family: Ubuntu;
   font-size: 1.2rem;
 }
+.flip_button {
+  height: 3%;
+  padding: 5px;
+  width: 5%;
+  margin-top: 0%;
+  margin-left: 90%;
+  margin-right: 5%
+}
+
+.flip_button button {
+  background-color: rgb(105, 105, 143);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
 
 
 

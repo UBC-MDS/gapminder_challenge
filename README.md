@@ -8,7 +8,7 @@ This document is aimed to give you some information about our project. Please sc
 
 ## The App
 
-Our app is hosted on Heroku. Take the challenges [here](https://gapminder-challenge.herokuapp.com/) to see how you understand global issues. You will be able to:
+Our app is hosted on Heroku. The link is https://gapminder-challenge.herokuapp.com/. Take the challenges [here](https://gapminder-challenge.herokuapp.com/) to see how you understand global issues. You will be able to:
 
 * know immediately if your worldview is up-to-date
 

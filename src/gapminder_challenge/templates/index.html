@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Kalam:wght@300&family=Press+Start+2P&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
   <script>
     function flip(event) {
       var element = event.currentTarget.closest(".card");
@@ -35,6 +36,12 @@
       btn3.style.backgroundColor = "#ee4266";
       btn3.style.color = "white";
       btn4.style.display = "block"
+      // add css class button 1
+      btn1.classList.add("button-shake");
+
+      party.confetti(runButton, {
+        count: party.variation.range(20, 40),
+      });
 
     }
     function quiz2Func(value) {
@@ -109,7 +116,7 @@
           <p>The countries in which continents has been the main CO2 emitter?</p>
           <div class="btn-group"" >
             <button class="button-6" onclick=" quiz1Func()" id="btn1">Americas</button>
-            <button class="button-6"  onclick="quiz1Func()" id="btn2">Europe</button>
+            <button class="button-6"  onclick="quiz1Func()" onmousedown="party.confetti(this)" id="btn2">Europe</button>
             <button class="button-6"  onclick="quiz1Func()" id="btn3">Asia</button>
             <br>
             <button onclick="flip(event)" id="btn4" style="display:none; width:50%">Flip to Explore!</button>

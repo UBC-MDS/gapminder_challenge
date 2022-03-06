@@ -6,7 +6,7 @@ background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);
 background: #1E9600;  
 background: -webkit-linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e);
 background: linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e); 
-
+font-family: 'Kalam', cursive;
 
 
 }
@@ -36,7 +36,7 @@ background: linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001
       perspective: 1000px;
       margin-left: auto;
       margin-right: auto;
-      font-family: Ubuntu;
+      /* font-family: Ubuntu; */
       font-size: 1rem;
     }
 
@@ -121,13 +121,14 @@ background: linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001
     border-radius: 0px; 
     padding: 5px;
     margin-top: 0px; */
+    font-family: 'Press Start 2P', cursive;
     
 }
 .lead {
   text-align: center; 
   color: white; 
-  font-family: Ubuntu;
-  font-size: 1.2rem;
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
 }
 .flip_button {
   height: 3%;

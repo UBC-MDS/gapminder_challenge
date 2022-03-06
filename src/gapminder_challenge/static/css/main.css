@@ -1,3 +1,10 @@
+body {
+background: #03001e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
   .left {
       float: left;
       width: 50%;
@@ -32,8 +39,9 @@
       transition: transform 2s;
       transform-style: preserve-3d;
       cursor: pointer;
-      background-color: white
-      
+      background-color: white;
+      border-radius: 30px;
+      color: white;
     }
 
     .front{
@@ -43,7 +51,8 @@
       justify-content: center;
       align-items: center;
       backface-visibility: hidden;
-      border: 1px solid black;
+      /* border: 1px solid black; */
+      border-radius: 30px;
     }
 
     .back {
@@ -53,7 +62,8 @@
       justify-content: center;
       align-items: center;
       backface-visibility: hidden;
-      border: 1px solid black;
+      /* border: 1px solid black; */
+      border-radius: 30px;
       
     }
 
@@ -99,7 +109,7 @@
       
   }
   .jumbotron {
-    background-color: rgb(248, 193, 42); 
+    /* background-color: rgb(248, 193, 42);  */
     font-family: Ubuntu; 
     width: 100vw; 
     margin-left: -63px; 
@@ -132,6 +142,39 @@
   text-decoration: none;
   display: inline-block;
 }
+
+/* CARD BACKGROUNDS */
+
+.card-1 {
+background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left top, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left top, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.card-2 {
+background: #4e54c8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right top, #bcbff5, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right top, #bcbff5, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.card-3 {
+background: #e96443;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right top, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right top, #904e95, #e96443); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.card-4 {
+  background: #43cea2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left top, #185a9d, #43cea2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
 
 
 

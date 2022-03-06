@@ -22,26 +22,36 @@
         }
       }
     };
-    function quiz1Func(value) {
+    function quiz1Func(id) {
 
       btn1 = document.getElementById("btn1");
       btn2 = document.getElementById("btn2");
       btn3 = document.getElementById("btn3");
       btn4 = document.getElementById("btn4");
 
-      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.backgroundColor = "#ED213A";
       btn1.style.color = "white";
-      btn2.style.backgroundColor = "#0ead69";    // correct answer
+      btn2.style.backgroundColor = "#56ab2f";    // correct answer
       btn2.style.color = "white";
-      btn3.style.backgroundColor = "#ee4266";
+      btn3.style.backgroundColor = "#ED213A";
       btn3.style.color = "white";
       btn4.style.display = "block"
-      // add css class button 1
-      btn1.classList.add("button-shake");
 
-      party.confetti(runButton, {
-        count: party.variation.range(20, 40),
-      });
+      if (id == 'btn1'){
+        btn1.classList.add("button-shake");
+      }
+      else if (id == 'btn2'){
+        //  party.confetti(runButton, {
+        //   count: party.variation.range(20, 40),
+        // });
+      }
+      else if (id == 'btn3'){
+        btn3.classList.add("button-shake");
+      }
+      // add css class button 1
+      
+
+     
 
     }
     function quiz2Func(value) {
@@ -115,9 +125,9 @@
           <h1>Challenge 1</h1>
           <p>The countries in which continents has been the main CO2 emitter?</p>
           <div class="btn-group"" >
-            <button class="button-6" onclick=" quiz1Func()" id="btn1">Americas</button>
-            <button class="button-6"  onclick="quiz1Func()" onmousedown="party.confetti(this)" id="btn2">Europe</button>
-            <button class="button-6"  onclick="quiz1Func()" id="btn3">Asia</button>
+            <button class="button-6" onclick="quiz1Func('btn1')" id="btn1">Americas</button>
+            <button class="button-6"  onclick="quiz1Func('btn2')" onmousedown="party.confetti(this)" id="btn2">Europe</button>
+            <button class="button-6"  onclick="quiz1Func('btn3')" id="btn3">Asia</button>
             <br>
             <button onclick="flip(event)" id="btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>

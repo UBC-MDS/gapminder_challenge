@@ -1,7 +1,12 @@
 body {
-background: #03001e;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* background: #03001e;  
+background: -webkit-linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); 
+background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);
+*/
+background: #1E9600;  
+background: -webkit-linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e);
+background: linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e); 
+
 
 
 }
@@ -110,12 +115,12 @@ background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C,
   }
   .jumbotron {
     /* background-color: rgb(248, 193, 42);  */
-    font-family: Ubuntu; 
-    width: 100vw; 
-    margin-left: -63px; 
+    /* font-family: Ubuntu;  */
+    /* width: 100vw;  */
+    /* margin-left: -63px; 
     border-radius: 0px; 
     padding: 5px;
-    margin-top: 0px;
+    margin-top: 0px; */
     
 }
 .lead {
@@ -147,26 +152,28 @@ background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C,
 
 .card-1 {
 background: #f12711;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left top, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left top, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(to left top, #e0a014, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left top, #e0a014, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 }
 
 .card-2 {
-background: #4e54c8;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right top, #bcbff5, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right top, #bcbff5, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+background: #e96443;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right top,  #e96443, #904e95,);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right top, #e96443, #904e95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
 .card-3 {
-background: #e96443;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right top, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right top, #904e95, #e96443); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #4e54c8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right top,#4e54c8, #a3a6e0 );  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right top,#4e54c8, #a3a6e0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
+
+
 
 .card-4 {
   background: #43cea2;  /* fallback for old browsers */

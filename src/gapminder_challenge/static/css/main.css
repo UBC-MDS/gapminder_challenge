@@ -37,7 +37,7 @@ font-family: 'Kalam', cursive;
       margin-left: auto;
       margin-right: auto;
       /* font-family: Ubuntu; */
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
 
     .card {
@@ -58,6 +58,11 @@ font-family: 'Kalam', cursive;
       backface-visibility: hidden;
       /* border: 1px solid black; */
       border-radius: 30px;
+      /* padding: 20px; */
+    }
+
+    .front p {
+      margin: 40px;
     }
 
     .back {
@@ -160,6 +165,7 @@ background: -webkit-linear-gradient(to left top, #e0a014, #f12711);  /* Chrome 1
 background: linear-gradient(to left top, #e0a014, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
+
 }
 
 .card-2 {
@@ -201,9 +207,10 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
   color: rgba(245, 243, 243, 0.65);
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  /* font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif; */
+  font-family: 'Kalam', cursive;
+  font-size: 20px;
+  /* font-weight: 600;  */
   justify-content: center;
   line-height: 1.25;
   margin: 0;

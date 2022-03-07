@@ -37,8 +37,14 @@
       btn3.style.color = "white";
 
       // FLIP BUTTONs
-      btn4.style.display = "block"
-      btn4.classList.add('is-active');
+      
+      
+      setTimeout(function () { 
+        btn4.style.display = "block"
+        btn4.classList.add('is-active');
+        party.sparkles(btn4); 
+      
+      }, 1500);
 
       if (id == 'btn1'){
         btn1.classList.add("button-shake");

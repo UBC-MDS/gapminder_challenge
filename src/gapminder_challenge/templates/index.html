@@ -35,7 +35,10 @@
       btn2.style.color = "white";
       btn3.style.backgroundColor = "#ED213A";
       btn3.style.color = "white";
+
+      // FLIP BUTTONs
       btn4.style.display = "block"
+      btn4.classList.add('is-active');
 
       if (id == 'btn1'){
         btn1.classList.add("button-shake");
@@ -129,7 +132,7 @@
             <button class="button-6"  onclick="quiz1Func('btn2')" onmousedown="party.confetti(this)" id="btn2">Europe</button>
             <button class="button-6"  onclick="quiz1Func('btn3')" id="btn3">Asia</button>
             <br>
-            <button onclick="flip(event)" id="btn4" style="display:none; width:50%">Flip to Explore!</button>
+            <button class="btn--jump" onclick="flip(event)" id="btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">

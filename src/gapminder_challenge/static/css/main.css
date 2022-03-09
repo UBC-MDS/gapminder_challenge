@@ -1,14 +1,8 @@
 body {
-/* background: #03001e;  
-background: -webkit-linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); 
-background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);
-*/
 background: #1E9600;  
 background: -webkit-linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e);
 background: linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e); 
 font-family: 'Kalam', cursive;
-
-
 }
   .left {
       float: left;
@@ -32,11 +26,10 @@ font-family: 'Kalam', cursive;
     .container {
       margin: 20px;
       width: 650px;
-      height: 550px;
+      height: 600px;
       perspective: 1000px;
       margin-left: auto;
       margin-right: auto;
-      /* font-family: Ubuntu; */
       font-size: 1.2rem;
     }
 
@@ -284,4 +277,16 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
     transform: scale(1.2);
     /* box-shadow: 0 4px 20px rgba(0,0,0,.1); */
   }
+}
+
+.btn-back {
+  position: absolute;
+    top: 0px;  /* position the div */
+    left: 10px;
+    float: left; 
+   width: 60px;
+   height: 60px;
+   -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  z-index: 1;
 }

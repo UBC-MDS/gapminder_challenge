@@ -22,6 +22,18 @@
         }
       }
     };
+
+    function spark_btn(btn){
+        setTimeout(function () {
+        btn.style.display = "block"
+        btn.classList.add('is-active');
+        party.sparkles(btn);
+      }, 1500);
+    }
+    function shake_btn(btn){
+      btn.classList.add("button-shake");
+    }
+
     function quiz1Func(id) {
 
       btn1 = document.getElementById("btn1");
@@ -36,80 +48,86 @@
       btn3.style.backgroundColor = "#ED213A";
       btn3.style.color = "white";
 
-      // FLIP BUTTONs
-      
-      
-      setTimeout(function () { 
-        btn4.style.display = "block"
-        btn4.classList.add('is-active');
-        party.sparkles(btn4); 
-      
-      }, 1500);
-
-      if (id == 'btn1'){
-        btn1.classList.add("button-shake");
+      spark_btn(btn4);
+      if (id == 'btn1') {
+        shake_btn(btn1);
       }
-      else if (id == 'btn2'){
-        //  party.confetti(runButton, {
-        //   count: party.variation.range(20, 40),
-        // });
+      else if (id == 'btn3') {
+        shake_btn(btn3);
       }
-      else if (id == 'btn3'){
-        btn3.classList.add("button-shake");
-      }
-      // add css class button 1
-      
-
-     
 
     }
-    function quiz2Func(value) {
+    function quiz2Func(id) {
 
       btn1 = document.getElementById("q2_btn1");
       btn2 = document.getElementById("q2_btn2");
       btn3 = document.getElementById("q2_btn3");
       btn4 = document.getElementById("q2_btn4");
 
-      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.backgroundColor = "#ED213A";
       btn1.style.color = "white";
-      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.backgroundColor = "#ED213A";
       btn2.style.color = "white";
-      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
+      btn3.style.backgroundColor = "#56ab2f";  // correct answer is 2.7
       btn3.style.color = "white";
-      btn4.style.display = "block"
+      
+      spark_btn(btn4);
+      if (id == 'btn1') {
+        shake_btn(btn1);
+      }
+      else if (id == 'btn2') {
+        shake_btn(btn2);
+      }
 
     }
 
-    function quiz3Func(value) {
+    function quiz3Func(id) {
 
       btn1 = document.getElementById("q3_btn1");
       btn2 = document.getElementById("q3_btn2");
       btn3 = document.getElementById("q3_btn3");
       btn4 = document.getElementById("q3_btn4");
 
-      btn1.style.backgroundColor = "#ee4266";
+      btn1.style.backgroundColor = "#ED213A";
       btn1.style.color = "white";
-      btn2.style.backgroundColor = "#ee4266";
+      btn2.style.backgroundColor = "#ED213A";
       btn2.style.color = "white";
-      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
+      btn3.style.backgroundColor = "#56ab2f";  // correct answer is 2.7
       btn3.style.color = "white";
-      btn4.style.display = "block"
+      
+      spark_btn(btn4);
+      if (id == 'btn1') {
+        shake_btn(btn1);
+      }
+      else if (id == 'btn2') {
+        shake_btn(btn2);
+      }
+
+      
 
     }
 
-    function quiz4Func(value) {
+    function quiz4Func(id) {
 
       btn1 = document.getElementById("q4_btn1");
       btn2 = document.getElementById("q4_btn2");
       btn3 = document.getElementById("q4_btn3");
       btn4 = document.getElementById("q4_btn4");
 
-      btn1.style.backgroundColor = "#ee4266"; 
+      btn1.style.backgroundColor = "#ED213A"; 
       btn1.style.color = "white";
-      btn2.style.backgroundColor = "#0ead69";// Correct answer
+      btn2.style.backgroundColor = "#56ab2f";// Correct answer
       btn2.style.color = "white";
-      btn3.style.backgroundColor = "#ee4266";
-      btn4.style.display = "block"
+      btn3.style.backgroundColor = "#ED213A";
+      
+      spark_btn(btn4);
+      if (id == 'btn1') {
+        shake_btn(btn1);
+      }
+      else if (id == 'btn3') {
+        shake_btn(btn3);
+      }
+
     }
   </script>
 
@@ -131,12 +149,10 @@
     <div class="container">
       <div class="card">
         <div class="front card-1">
-          <!-- <button class="btn--jump" onclick="flip(event)" id="btn4" type="button"></button> -->
-        <!-- <input type="image" id="image" alt="Login" src="/static/img/right-arrow.png"> -->
         <img id="btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none"onclick="flip(event)" >
           <h1>Challenge 1</h1>
           <p>The countries in which continents has been the main CO2 emitter?</p>
-          <div class="btn-group"" >
+          <div class="btn-group" >
             <button class="button-6" onclick="quiz1Func('btn1')" id="btn1">Americas</button>
             <button class="button-6"  onclick="quiz1Func('btn2')" onmousedown="party.confetti(this)" id="btn2">Europe</button>
             <button class="button-6"  onclick="quiz1Func('btn3')" id="btn3">Asia</button>
@@ -144,7 +160,7 @@
         </div>
         <div class="back">
           <div class="flip_button">
-            <button onclick="flip(event)" id="btn5">Back</button>
+            <button onclick="flip(event)" >Back</button>
           </div>
           <div>
             <iframe noresize="noresize" style="
@@ -168,20 +184,18 @@
     <div class="container">
       <div class="card">
         <div class="front card-2">
+          <img id="q2_btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none" onclick="flip(event)">
           <h1>Challenge 2</h1>
           <p> The average number of children per woman in 1960 is 5.5, how about in 2010?</p>
           <div class="btn-group">
-            <button onclick=" quiz2Func('a')" id="q2_btn1">5.0</button>
-            <button onclick="quiz2Func('b')" id="q2_btn2">0.9</button>
-            <button onclick="quiz2Func('c')" id="q2_btn3">3.0</button>
-            <br>
-            <button onclick="flip(event)" id="q2_btn4" style="display:none; width:50%">Flip to
-              Explore!</button>
+            <button class="button-6" onclick=" quiz2Func('btn1')" id="q2_btn1">5.0</button>
+            <button class="button-6" onclick="quiz2Func('btn2')" id="q2_btn2">0.9</button>
+            <button class="button-6" onclick="quiz2Func('btn3')" id="q2_btn3" onmousedown="party.confetti(this)">3.0</button>
           </div>
         </div>
         <div class="back">
           <div class="flip_button">
-            <button onclick="flip(event)" id="btn5">Back</button>
+            <button onclick="flip(event)" >Back</button>
           </div>
           <div>
             <iframe noresize="noresize" style="
@@ -202,21 +216,22 @@
   <!-- PART 3 -->
   <div class="left">
     <div class="container">
-      <div class="card card-3">
-        <div class="front">
+      <div class="card">
+        <div class="front  card-3">
+          <img id="q3_btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none" onclick="flip(event)">
           <h1>Challenge 3</h1>
           <p> Average life expectancy was about 34 in Sub-Saharran Africa in 1940. What about in 2018?</p>
           <div class="btn-group">
-            <button onclick=" quiz3Func('a')" id="q3_btn1">48</button>
-            <button onclick="quiz3Func('b')" id="q3_btn2">57</button>
-            <button onclick="quiz3Func('c')" id="q3_btn3">64</button>
+            <button class="button-6" onclick=" quiz3Func('btn1')" id="q3_btn1">48</button>
+            <button class="button-6" onclick="quiz3Func('btn2')" id="q3_btn2">57</button>
+            <button class="button-6" onclick="quiz3Func('btn3')" id="q3_btn3" onmousedown="party.confetti(this)">64</button>
             <br>
             <button onclick="flip(event)" id="q3_btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">
           <div class="flip_button">
-            <button onclick="flip(event)" id="q3_btn5">Back</button>
+            <button onclick="flip(event)" >Back</button>
           </div>
           <div>
             <iframe noresize="noresize" style="
@@ -239,21 +254,22 @@
   <!-- PART 4 -->
   <div class="right">
     <div class="container">
-      <div class="card card-4">
-        <div class="front">
+      <div class="card">
+        <div class="front card-4">
+          <img id="q4_btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none" onclick="flip(event)">
           <h1>Challenge 4</h1>
           <p> Which region experienced the greatest increase in income per capita during the last 50 years?</p>
           <div class=" btn-group">
-            <button onclick=" quiz4Func('1')" id="q4_btn1">Oceania</button>
-            <button onclick="quiz4Func('2')" id="q4_btn2">Europe</button>
-            <button onclick="quiz4Func('3')" id="q4_btn3">Asia</button>
+            <button class="button-6" onclick=" quiz4Func('btn1')" id="q4_btn1">Oceania</button>
+            <button class="button-6" onclick="quiz4Func('btn2')" id="q4_btn2" onmousedown="party.confetti(this)">Europe</button>
+            <button class="button-6" onclick="quiz4Func('btn3')" id="q4_btn3">Asia</button>
             <br>
             <button onclick="flip(event)" id="q4_btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">
           <div class="flip_button">
-            <button onclick="flip(event)" id="q4_btn5">Back</button>
+            <button onclick="flip(event)">Back</button>
           </div>
           <div>
             <iframe noresize="noresize" style="

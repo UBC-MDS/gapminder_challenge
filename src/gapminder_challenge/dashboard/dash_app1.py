@@ -22,11 +22,11 @@ def add_dash(server):
         html.Iframe(
             id='bar_chart',
             style={'border-width': '0', 'width': '100%', 'height': '400px'}),
-        dcc.Slider(1914, 2014, 2,
+        dcc.Slider(1914, 2014, 1,
                    value=1914,
                    id='slider',
-                   marks={str(year): str(year)
-                          for year in range(1914, 2015, 10)}
+                   marks=None,
+                   tooltip={"placement": "bottom", }
                    ),
         dcc.Dropdown(df_year.region.unique(),
                      id='dropdown',

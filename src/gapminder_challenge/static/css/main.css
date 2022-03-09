@@ -290,3 +290,7 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
   transform: scaleX(-1);
   z-index: 1;
 }
+
+.no-click {
+   pointer-events: none;
+}

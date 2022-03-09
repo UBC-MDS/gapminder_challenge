@@ -21,7 +21,12 @@ function flip(event) {
       btn.classList.add("button-shake");
     }
 
-    function quiz1Func(id) {
+    function no_click(event){
+      var element = event.currentTarget.closest(".btn-group");
+      element.classList.add("no-click");
+    }
+
+    function quiz1Func(event,id) {
 
       btn1 = document.getElementById("btn1");
       btn2 = document.getElementById("btn2");
@@ -42,9 +47,10 @@ function flip(event) {
       else if (id == 'btn3') {
         shake_btn(btn3);
       }
+      no_click(event);
 
     }
-    function quiz2Func(id) {
+    function quiz2Func(event, id) {
 
       btn1 = document.getElementById("q2_btn1");
       btn2 = document.getElementById("q2_btn2");
@@ -65,10 +71,11 @@ function flip(event) {
       else if (id == 'btn2') {
         shake_btn(btn2);
       }
+      no_click(event);
 
     }
 
-    function quiz3Func(id) {
+    function quiz3Func(event, id) {
 
       btn1 = document.getElementById("q3_btn1");
       btn2 = document.getElementById("q3_btn2");
@@ -89,12 +96,12 @@ function flip(event) {
       else if (id == 'btn2') {
         shake_btn(btn2);
       }
-
+      no_click(event);
       
 
     }
 
-    function quiz4Func(id) {
+    function quiz4Func(event, id) {
 
       btn1 = document.getElementById("q4_btn1");
       btn2 = document.getElementById("q4_btn2");
@@ -114,5 +121,6 @@ function flip(event) {
       else if (id == 'btn3') {
         shake_btn(btn3);
       }
+      no_click(event);
 
     }

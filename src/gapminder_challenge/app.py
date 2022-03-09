@@ -3,6 +3,7 @@ from dashboard import dash_app1, dash_app2, dash_app3, dash_app4
 
 
 
+
 app = Flask(__name__)
 app = dash_app1.add_dash(app)
 app = dash_app2.add_dash(app)

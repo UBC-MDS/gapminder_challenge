@@ -1,10 +1,10 @@
 # Gapminder Challenge App
 
-Link to the app: https://gapminder-challenge.herokuapp.com/
+Link to the app: <https://gapminder-challenge.herokuapp.com/>
 
 ![](images/gapminder_animation.gif)
 
-## Welcome!
+## Welcome
 
 Thank you for visiting the Gapminder Challenge app project repository.
 
@@ -43,7 +43,13 @@ Here is an example sketch of the app:
 
 ## Installation
 
-TODO
+1. Clone the repository and navigate to the root folder.
+
+2. Run the following command to install the required dependencies:
+
+    ```docker-compose up```
+
+3. The app will be up in the default local host and port.
 
 ## Get Involved
 
@@ -62,6 +68,7 @@ For this project, we used `Dash` for dashboarding, `Altair` and `Plotly` for cha
 ## License and Contributors
 
 `gapminder_challenge` was created by:
+
 * Son Chau
 
 * Julien Gordon

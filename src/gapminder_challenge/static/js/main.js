@@ -16,13 +16,12 @@ function flip_story(event) {
       front.style.display = "none";
       story.style.display = "block";
 
-      // var myVizzu = document.getElementById("myVizzu");
-      var myVizzu = event.currentTarget.closest(".card");
+      var myVizzu = document.getElementById("myVizzu");
       myVizzu.style.width = '650px';
       myVizzu.style.height = '500px';
 
       element.style.transform = "rotateY(360deg)";
-      drawBarChart(event);
+      doAnimation();
     }
     else {
       element.style.transform = "rotateY(180deg)";

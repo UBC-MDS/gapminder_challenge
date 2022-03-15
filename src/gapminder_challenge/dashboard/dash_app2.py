@@ -35,8 +35,7 @@ def add_dash(server):
                             {'label': 'Region', 'value': 'region'}
                         ],
                         value='', id='filter_dropdown')
-             ]),
-        html.Div(id="data_card_2", **{'data-card_2_data': []})
+             ])
     ])
 
     # Set up callbacks/backend
@@ -80,19 +79,5 @@ def add_dash(server):
                 tooltip=['year', 'children_per_woman']).interactive().add_selection(click)
         
         return chart.to_html()
-
-    @app.callback(
-        Output('data_card_2', 'data-card_2_data'),
-        Input('filter_dropdown', 'value'))
-    def get_data(filter_dropdown="Income Group"):
-        if filter_dropdown == '':
-            return 'Income Group'
-        df_by_year = df.groupby(["year"]).mean()
-        df_by_year = df_by_year.reset_index()
-        df_by_year = df.groupby([filter_dropdown, "year"]).mean()
-        df_viz = df_by_year.reset_index()
-        df_viz = df_viz[[filter_dropdown, 'year', 'children_per_woman']]
-        df_viz = df_viz.to_json()
-        return (df_viz)
 
     return app.server

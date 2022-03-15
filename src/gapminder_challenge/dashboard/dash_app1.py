@@ -34,7 +34,7 @@ def add_dash(server):
                      id='dropdown',
                      value=['Europe', 'Asia', 'Americas', 'Africa' , 'Oceania'],
                      multi=True),
-        html.Div(id="data_card_1", className="data_card", **{'data-card_1_data': []})
+        html.Div(id="vizzu_data", **{'data-co2': []})
     ])
 
     # Set up callbacks/backend
@@ -61,7 +61,7 @@ def add_dash(server):
         return (chart).to_html()
 
     @app.callback(
-        Output('data_card_1', 'data-card_1_data'),
+        Output('vizzu_data', 'data-co2'),
         Input('dropdown', 'value'))
     def get_data(regions=["Europe", "Asia", "Americas", "Africa", "Oceania"]):
         # get df for country, year and life_expectancy

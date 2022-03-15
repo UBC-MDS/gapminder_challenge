@@ -1,18 +1,3 @@
-  function showStory(event) {
-      var card = event.currentTarget.closest(".card");
-      // hide card
-      card.style.display = "none";
-      // show story
-      var story = document.getElementById("story");
-      story.style.display = "block";
-
-      var myVizzu = document.getElementById("myVizzu");
-      myVizzu.style.width = '650px';
-      myVizzu.style.height = '600px';
-      
-      doAnimation();
-
-    }
   
   function doAnimation() {
     var iframe = document.getElementById("iframe_card_1");
@@ -58,10 +43,9 @@
       function drawYear(event) {
         event.renderingContext.font = "200 40px Roboto";
         event.renderingContext.fillStyle = "#737373FF";
-        // event.renderingContext.fillText(actYear,
-        //   1000, 500);
+        // year text position
         event.renderingContext.fillText(actYear,
-          550, 500);
+          550, 450);
 
       }
 
@@ -79,7 +63,8 @@
         return chart;
       });
 
-      for (let year = 1902; year <= 2014; year = year + 4) {
+      for (let year = 1898; year <= 2014; year = year + 4) {
+        let start_delay = year === 1902 ? 3 : 0;
         anim = anim.then(chart => {
           actYear = year;
           return chart.animate({
@@ -94,7 +79,7 @@
                 label: { set: ['CO2'] },
                 color: { attach: ['Region'] }
               },
-              title: 'How Asian become largest CO2 emiters in the world',
+              title: 'How Asian became the world largest CO2 emiters',
               sort: 'byValue'
             },
             style:
@@ -106,11 +91,9 @@
               },
               plot: {
                 paddingLeft: 100,
-                // paddingTop: 50,
                 yAxis: {
                   color: '#ffffff00',
                   label: {
-                    // paddingRight: 20
                   },
                 },
                 xAxis: {
@@ -124,7 +107,7 @@
             }
           },
             {
-              duration: 0.6, delay: 0,
+              duration: 0.6, delay: start_delay,
               x: { easing: 'linear', delay: 0 },
               y: { delay: 0 },
               show: { delay: 0 },

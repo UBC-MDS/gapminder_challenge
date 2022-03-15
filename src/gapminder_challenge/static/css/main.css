@@ -49,9 +49,7 @@ font-family: 'Kalam', cursive;
       justify-content: center;
       align-items: center;
       backface-visibility: hidden;
-      /* border: 1px solid black; */
       border-radius: 30px;
-      /* padding: 20px; */
     }
 
     .front p {
@@ -65,17 +63,18 @@ font-family: 'Kalam', cursive;
       justify-content: center;
       align-items: center;
       backface-visibility: hidden;
-      /* border: 1px solid black; */
       border-radius: 30px;
-      
+      background-color: white;
     }
+  
 
     .back {
       transform: rotateY(180deg);
     }
+   
 
     .btn-group {
-      /* border: 1px solid black; */
+   
       width: 50%;
       height: 50%;
     }
@@ -92,13 +91,6 @@ font-family: 'Kalam', cursive;
       
   }
   .jumbotron {
-    /* background-color: rgb(248, 193, 42);  */
-    /* font-family: Ubuntu;  */
-    /* width: 100vw;  */
-    /* margin-left: -63px; 
-    border-radius: 0px; 
-    padding: 5px;
-    margin-top: 0px; */
     font-family: 'Press Start 2P', cursive;
     
 }
@@ -166,21 +158,15 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
 /* CSS CARD BUTTON */
 .button-6 {
   align-items: center;
-  /* background-color: #2e2020; */
-  /* border: 1px solid #FFFFFF; */
-  /* background-color: rgba(245, 243, 243, 0.65); */
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: .25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
-  /* color: rgba(0, 0, 0, 0.85); */
   color: rgba(245, 243, 243, 0.65);
   cursor: pointer;
   display: inline-flex;
-  /* font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif; */
   font-family: 'Kalam', cursive;
   font-size: 20px;
-  /* font-weight: 600;  */
   justify-content: center;
   line-height: 1.25;
   margin: 0;
@@ -192,7 +178,7 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  vertical-align: baseline;
+  /* vertical-align: baseline; */
   width: auto;
 
   padding: 10px 24px;
@@ -290,13 +276,22 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
   transform: scaleX(-1);
   z-index: 1;
 }
+.btn-story {
+   position: absolute;
+    top: 0px;  /* position the div */
+    right: 10px;
+    float: right; 
+   width: 60px;
+   height: 60px;
+  z-index: 1;
+}
 
 .no-click {
    pointer-events: none;
 }
 
   .story{
-      /* background-color: transparent; */
+      background-color: white;
       border-radius: 30px;
-      /* color: white; */
+       display: none;
     }

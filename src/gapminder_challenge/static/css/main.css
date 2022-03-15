@@ -279,7 +279,7 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
 .btn-story {
    position: absolute;
     top: 0px;  /* position the div */
-    right: 10px;
+    right: 15px;
     float: right; 
    width: 60px;
    height: 60px;

@@ -13,7 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
   <script src="{{url_for('static', filename='js/main.js')}}"></script>
     <script type="module">
-      import Vizzu from "https://cdn.jsdelivr.net/npm/vizzu@latest/dist/vizzu.min.js";
+      import Vizzu from "https://cdn.jsdelivr.net/npm/vizzu@0.4.3/dist/vizzu.min.js";
       window.vizzuFromModule = Vizzu;
     </script>
   <script src="{{url_for('static', filename='js/vizzu.js')}}"></script>
@@ -51,7 +51,7 @@
           <div>
             <br>
             <br>
-            <iframe id="iframe_card_1" noresize="noresize" style="
+            <iframe class="iframe_card" id="iframe_card_1" noresize="noresize" style="
         position: absolute;
         background: transparent;
         width: 100%;
@@ -66,7 +66,7 @@
           <div >
             <br>
             <br>
-            <canvas  id="myVizzu" width="650" height="500"></canvas>
+            <canvas  id="canvas_1" width="650" height="500"></canvas>
           </div>
         </div>
 
@@ -94,6 +94,7 @@
         </div>
         <div class="back">
           <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+          <img class="btn-story" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
           <div>
             <br>
             <iframe noresize="noresize" style="
@@ -106,6 +107,14 @@
             </iframe>
           </div>
         </div>
+          <div class="story">
+            <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
+            <div>
+              <br>
+              <br>
+              <canvas id="canvas_2" width="650" height="500"></canvas>
+            </div>
+          </div>
       </div>
     </div>
   </div>

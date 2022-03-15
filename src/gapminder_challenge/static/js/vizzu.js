@@ -1,6 +1,3 @@
-   import Vizzu from "https://cdn.jsdelivr.net/npm/vizzu@latest/dist/vizzu.min.js";
-      window.vizzuFromModule = Vizzu;
-      
   function showStory(event) {
       var card = event.currentTarget.closest(".card");
       // hide card
@@ -11,7 +8,7 @@
 
       var myVizzu = document.getElementById("myVizzu");
       myVizzu.style.width = '650px';
-      myVizzu.style.height = '550px';
+      myVizzu.style.height = '600px';
       
       doAnimation();
 
@@ -71,7 +68,7 @@
       function fixMarkerLabel(event) {
         const cutAfterDot = /\..*/;
         let label = event.data.text;
-        label = label.replace(cutAfterDot, ' m$');
+        label = label.replace(cutAfterDot, '');
         event.renderingContext.fillText(label, event.data.rect.pos.x, event.data.rect.pos.y);
         event.preventDefault();
       }
@@ -82,7 +79,7 @@
         return chart;
       });
 
-      for (let year = 1908; year <= 2018; year = year + 2) {
+      for (let year = 1902; year <= 2014; year = year + 4) {
         anim = anim.then(chart => {
           actYear = year;
           return chart.animate({
@@ -97,7 +94,7 @@
                 label: { set: ['CO2'] },
                 color: { attach: ['Region'] }
               },
-              title: 'CO2 - Year by Year',
+              title: 'How Asian become largest CO2 emiters in the world',
               sort: 'byValue'
             },
             style:

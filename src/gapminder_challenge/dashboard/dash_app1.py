@@ -65,7 +65,7 @@ def add_dash(server):
         Input('dropdown', 'value'))
     def get_data(regions=["Europe", "Asia", "Americas", "Africa", "Oceania"]):
         # get df for country, year and life_expectancy
-        df_viz = df.query(f'region=={regions}')
+        df_viz = df_year.query(f'region=={regions}')
         # select column for country, year and life_expectancy
         df_viz = df_viz[['region', 'year', 'co2_per_capita']]
         # convert df_viz to array with comma delimiter

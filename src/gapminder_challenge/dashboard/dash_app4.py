@@ -74,6 +74,7 @@ def add_dash(server):
                 ).encode(
                     alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]], round=True)),
                     alt.Y('income_per_capita', title='Income Per Capita (in US$)'),
+                    strokeWidth=alt.value(3),
                     tooltip = ["year", "income_per_capita"]).interactive()
         else:
             df_subset_region = df[df.region.isin(region_dropdown)]
@@ -88,6 +89,7 @@ def add_dash(server):
                     alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]], round=True)),
                     alt.Y('income_per_capita', title='Income Per Capita (in US$)'),
                     alt.Color("region", title = "Region"),
+                    strokeWidth=alt.value(3),
                     tooltip = ["year", "income_per_capita"])
        
 

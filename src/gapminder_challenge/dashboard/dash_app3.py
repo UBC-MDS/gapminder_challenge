@@ -56,6 +56,7 @@ def add_dash(server):
                 title=f"Average Life Expectancy from {year_range_slider[0]} to {year_range_slider[1]}").mark_line().encode(
                 y=alt.Y("life_expectancy", title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
+                strokeWidth=alt.value(3),
                 color=alt.Color('sub_region'),
                 tooltip=['year', 'life_expectancy']).interactive()
         else: 
@@ -69,6 +70,7 @@ def add_dash(server):
                 f"from {year_range_slider[0]} to {year_range_slider[1]}"]).mark_line().encode(
                 y=alt.Y("life_expectancy", title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
+                strokeWidth=alt.value(3),
                 color=alt.Color('sub_region', legend=None),
                 tooltip=['year', 'life_expectancy']).interactive()
         

@@ -3,8 +3,8 @@ from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
 # Read in the raw data and subset the data for analysis
-# df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
-df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
+df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
+# df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
 df = df[["country", "year", "population", "region", "income"]]
 
 # Define constant values

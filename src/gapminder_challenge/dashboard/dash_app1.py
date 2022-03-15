@@ -3,8 +3,8 @@ from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
 
-# df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
-df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
+df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
+# df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
 df_year = df.groupby(['year', 'region']).agg({'co2_per_capita': 'sum'}).reset_index()
 
 url = '/dash_app1/'
@@ -34,6 +34,7 @@ def add_dash(server):
                      id='dropdown',
                      value=['Europe', 'Asia', 'Americas', 'Africa' , 'Oceania'],
                      multi=True),
+        html.Div(id="vizzu_data", **{'data-co2': []})
     ])
 
     # Set up callbacks/backend
@@ -57,14 +58,19 @@ def add_dash(server):
             tooltip=['region', 'year', 'co2_per_capita', ],
             color='region').interactive()
 
-        # text = chart.mark_text(
-        #     align='left',
-        #     baseline='middle',
-        #     dx=3  # Nudges text to right so it doesn't appear on top of the bar
-        # ).encode(
-        #     text='co2_per_capita:Q'
-        # )
-
         return (chart).to_html()
+
+    @app.callback(
+        Output('vizzu_data', 'data-co2'),
+        Input('dropdown', 'value'))
+    def get_data(regions=["Europe", "Asia", "Americas", "Africa", "Oceania"]):
+        # get df for country, year and life_expectancy
+        df_viz = df.query(f'region=={regions}')
+        # select column for country, year and life_expectancy
+        df_viz = df_viz[['region', 'year', 'co2_per_capita']]
+        # convert df_viz to array with comma delimiter
+        df_viz = df_viz.to_json()
+
+        return (df_viz)
 
     return app.server

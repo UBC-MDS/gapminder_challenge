@@ -294,3 +294,8 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
 .no-click {
    pointer-events: none;
 }
+
+  .story{
+      /* display: none; */
+       border: 1px solid black;
+    }

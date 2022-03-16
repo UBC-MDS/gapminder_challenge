@@ -126,18 +126,17 @@ function drawLineChart(data_json, title, vizzu_id) {
   let label_1 = data_keys[0].replace(/_/g, " ");
   let label_2 = data_keys[1].replace(/_/g, " ");
   let label_3 = data_keys[2].replace(/_/g, " ");
-  
+
   // convert to title case
   label_1 = label_1.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase());
   label_2 = label_2.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase());
   label_3 = label_3.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase());
 
-
   let data = {
     series: [
-      { name: label_1, type: "dimension" },//income
-      { name: label_2, type: "dimension" },//year
-      { name: label_3, type: "measure" },//children
+      { name: label_1, type: "dimension" }, //income
+      { name: label_2, type: "dimension" }, //year
+      { name: label_3, type: "measure" }, //children
     ],
     records: line_data,
   };
@@ -234,4 +233,3 @@ function drawLineChart(data_json, title, vizzu_id) {
     });
   }
 }
-

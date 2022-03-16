@@ -28,17 +28,21 @@ function flip_story(event) {
     vizzu_canvas.style.height = "500px";
     // which one to draw
     if (card.classList.contains("card-1")) {
-        let data_card =
-          iframe.contentWindow.document.getElementById("data_card_1");
-        let data_array = data_card.dataset.card_1_data;
-        let data_json = JSON.parse(data_array);
+      let data_card =
+        iframe.contentWindow.document.getElementById("data_card_1");
+      let data_array = data_card.dataset.card_1_data;
+      let data_json = JSON.parse(data_array);
       drawBarChart(data_json);
     } else if (card.classList.contains("card-2")) {
-       let data_card =
-         iframe.contentWindow.document.getElementById("data_card_2");
-       let data_array = data_card.dataset.card_2_data;
-       let data_json = JSON.parse(data_array);
-      drawLineChart(data_json, "Average children per woman is trending down", "vizzu_card_2");
+      let data_card =
+        iframe.contentWindow.document.getElementById("data_card_2");
+      let data_array = data_card.dataset.card_2_data;
+      let data_json = JSON.parse(data_array);
+      drawLineChart(
+        data_json,
+        "Average children per woman is trending down",
+        "vizzu_card_2"
+      );
     } else if (card.classList.contains("card-3")) {
       let data_card =
         iframe.contentWindow.document.getElementById("data_card_3");
@@ -49,7 +53,7 @@ function flip_story(event) {
         "Life expectancy is trending up",
         "vizzu_card_3"
       );
-     } else if (card.classList.contains("card-4")) {
+    } else if (card.classList.contains("card-4")) {
       let data_card =
         iframe.contentWindow.document.getElementById("data_card_4");
       let data_array = data_card.dataset.card_4_data;
@@ -60,7 +64,6 @@ function flip_story(event) {
         "vizzu_card_4"
       );
     }
-
   }
 }
 

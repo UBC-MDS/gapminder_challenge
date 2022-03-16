@@ -15,7 +15,7 @@ def add_dash(server):
     """
     It creates a Dash app that plots a bubble plot of life expectancy vs income
         for a given year.
-    
+
     :param server: The Flask app object
     :return: A Dash server
     """

@@ -60,6 +60,7 @@ def add_dash(server):
                 y=alt.Y("life_expectancy",
                         title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
+                strokeWidth=alt.value(3),
                 color=alt.Color('sub_region'),
                 tooltip=['year', 'life_expectancy']).interactive()
         else:
@@ -74,6 +75,7 @@ def add_dash(server):
                 y=alt.Y("life_expectancy",
                         title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
+                strokeWidth=alt.value(3),
                 color=alt.Color('sub_region', legend=None),
                 tooltip=['year', 'life_expectancy']).interactive()
 

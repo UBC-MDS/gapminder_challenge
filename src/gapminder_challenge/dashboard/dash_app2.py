@@ -65,6 +65,7 @@ def add_dash(server):
                               title="Average Number of Children").mark_line().encode(
                 y=alt.Y("children_per_woman", title="Children per woman"),
                 x=alt.X("year", title="Year"),
+                strokeWidth=alt.value(3),
                 tooltip=['year', 'children_per_woman']).interactive()
         else:
             # group by filter field and then year to get the average
@@ -77,6 +78,7 @@ def add_dash(server):
                               title=title_params).mark_line().encode(
                 y=alt.Y("children_per_woman", title="Children per woman"),
                 x=alt.X("year", title="Year"),
+                strokeWidth=alt.value(3),
                 color=filter,
                 opacity=alt.condition(click, alt.value(0.9), alt.value(0.2)),
                 tooltip=['year', 'children_per_woman']).interactive().add_selection(click)

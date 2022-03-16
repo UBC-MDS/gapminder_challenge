@@ -38,7 +38,17 @@ function flip_story(event) {
          iframe.contentWindow.document.getElementById("data_card_2");
        let data_array = data_card.dataset.card_2_data;
        let data_json = JSON.parse(data_array);
-      drawLineChart(data_json);
+      drawLineChart(data_json, "Average children per woman is trending down", "vizzu_card_2");
+    } else if (card.classList.contains("card-3")) {
+      let data_card =
+        iframe.contentWindow.document.getElementById("data_card_3");
+      let data_array = data_card.dataset.card_3_data;
+      let data_json = JSON.parse(data_array);
+      drawLineChart(
+        data_json,
+        "Life expectancy is trending up",
+        "vizzu_card_3"
+      );
     }
   }
 }

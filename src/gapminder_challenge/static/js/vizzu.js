@@ -109,7 +109,7 @@ function drawBarChart(data_json) {
   }
 }
 
-function drawLineChart(data_json) {
+function drawLineChart(data_json, title, vizzu_id) {
   let line_data = [];
   let data_keys = Object.keys(data_json);
   let data_subkeys = Object.keys(data_json[data_keys[0]]);
@@ -135,9 +135,9 @@ function drawLineChart(data_json) {
 
   let data = {
     series: [
-      { name: "Income Group", type: "dimension" },//income
+      { name: label_1, type: "dimension" },//income
       { name: label_2, type: "dimension" },//year
-      { name: "Children", type: "measure" },//children
+      { name: label_3, type: "measure" },//children
     ],
     records: line_data,
   };
@@ -145,7 +145,7 @@ function drawLineChart(data_json) {
 
   // export default data;
 
-  let chart = new window.vizzuFromModule("vizzu_card_2", { data });
+  let chart = new window.vizzuFromModule(vizzu_id, { data });
 
   let actYear = "";
   let anim = chart.initializing;
@@ -186,17 +186,17 @@ function drawLineChart(data_json) {
           },
           config: {
             channels: {
-              x: { set: ["Year"] },
+              x: { set: [label_2] },
               y: {
-                set: ["Children"],
+                set: [label_3],
                 // range: {
                 //   min: 0,
                 //   max: 8,
                 // },
               },
-              color: { attach: ["Income Group"] },
+              color: { attach: [label_1] },
             },
-            title: "Average children per woman is trending down",
+            title: title,
             geometry: "line",
           },
           style: {
@@ -234,3 +234,4 @@ function drawLineChart(data_json) {
     });
   }
 }
+

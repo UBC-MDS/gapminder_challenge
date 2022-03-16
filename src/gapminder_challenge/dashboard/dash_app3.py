@@ -31,7 +31,8 @@ def add_dash(server):
                         options = [{'label': 'All', 'value': 'All'}] +
                     [{'label': i, 'value': i} for i in df['sub_region'].unique()],
                     value='Sub-Saharan Africa', id='q3_filter_dropdown')
-             ])
+             ]),
+        html.Div(id="data_card_3", **{'data-card_3_data': []})
     ])
 
     # Set up callbacks/backend
@@ -73,5 +74,19 @@ def add_dash(server):
                 tooltip=['year', 'life_expectancy']).interactive()
         
         return chart.to_html()
+
+    @app.callback(
+        Output('data_card_3', 'data-card_3_data'),
+        Input('q3_filter_dropdown', 'value'))
+    def get_data(subregions=["Western Europe", "Southern  Asia", "Northern America"]):
+        df_q3 = df[df['sub_region'] == subregions]
+        df_q3 = df_q3.groupby(['sub_region', 'year']).mean()
+        df_q3 = df_q3.reset_index()
+        df_viz = df_q3[['sub_region', 'year', 'life_expectancy']]
+        df_viz = df_viz.to_json()
+        return (df_viz)
+
+
+        return (df_viz)
 
     return app.server

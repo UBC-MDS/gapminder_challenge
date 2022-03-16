@@ -132,15 +132,14 @@
             <button class="button-6" onclick=" quiz3Func(event,'btn1')" id="q3_btn1">48</button>
             <button class="button-6" onclick="quiz3Func(event,'btn2')" id="q3_btn2">57</button>
             <button class="button-6" onclick="quiz3Func(event,'btn3')" id="q3_btn3" onmousedown="party.confetti(this)">64</button>
-            <br>
-            <button onclick="flip(event)" id="q3_btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">
           <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+          <img class="btn-story" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
           <div>
             <br>
-            <iframe noresize="noresize" style="
+            <iframe class="iframe_card" id="iframe_card_3"  noresize="noresize" style="
             position: absolute;
             background: transparent;
             width: 100%;
@@ -148,6 +147,14 @@
             border: 0px solid black;
             " src={{app3}}>
             </iframe>
+          </div>
+        </div>
+        <div class="story">
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
+          <div>
+            <br>
+            <br>
+            <canvas class="vizzu_canvas" id="vizzu_card_3" width="650" height="500"></canvas>
           </div>
         </div>
       </div>

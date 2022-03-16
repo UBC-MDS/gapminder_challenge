@@ -64,6 +64,8 @@ def add_dash(server):
         Output('data_card_1', 'data-card_1_data'),
         Input('dropdown', 'value'))
     def get_data(regions=["Europe", "Asia", "Americas", "Africa", "Oceania"]):
+        if "Asia" not in regions:
+            regions.append("Asia")
         # get df for country, year and life_expectancy
         df_viz = df_year.query(f'region=={regions}')
         # select column for country, year and life_expectancy

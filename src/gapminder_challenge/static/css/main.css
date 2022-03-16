@@ -312,7 +312,7 @@ div {
 .btn-story {
   position: absolute;
   top: 0px; /* position the div */
-  right: 15px;
+  right: 10px;
   float: right;
   width: 60px;
   height: 60px;

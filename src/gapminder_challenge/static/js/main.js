@@ -9,23 +9,24 @@ function flip(event) {
 };
 
 function flip_story(event) {
-  var element = event.currentTarget.closest(".card");
-     var front = element.querySelector('.front');
-    var story = element.querySelector('.story');
-    if (element.style.transform == "rotateY(180deg)") {
+  var card = event.currentTarget.closest(".card");
+     var front = card.querySelector('.front');
+    var story = card.querySelector('.story');
+    var vizzu_canvas = story.querySelector('.vizzu_canvas');
+    if (card.style.transform == "rotateY(180deg)") {
       front.style.display = "none";
       story.style.display = "block";
 
-      // var myVizzu = document.getElementById("myVizzu");
-      var myVizzu = event.currentTarget.closest(".card");
-      myVizzu.style.width = '650px';
-      myVizzu.style.height = '500px';
+      
+      vizzu_canvas.style.width = '650px';
+      vizzu_canvas.style.height = '500px';
 
-      element.style.transform = "rotateY(360deg)";
-      drawBarChart(event);
+      card.style.transform = "rotateY(360deg)";
+      // which one to draw
+      drawBarChart();
     }
     else {
-      element.style.transform = "rotateY(180deg)";
+      card.style.transform = "rotateY(180deg)";
       setTimeout(() => {  
         front.style.display = "flex"; 
         story.style.display = "none";

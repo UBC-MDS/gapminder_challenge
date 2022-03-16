@@ -10,6 +10,8 @@ function flip(event) {
 function flip_story(event) {
   let card = event.currentTarget.closest(".card");
   let front = card.querySelector(".front");
+  let back = card.querySelector(".back");
+  let iframe = back.querySelector(".iframe_card");
   let story = card.querySelector(".story");
   let vizzu_canvas = story.querySelector(".vizzu_canvas");
   if (card.style.transform == "rotateY(360deg)") {
@@ -25,7 +27,19 @@ function flip_story(event) {
     vizzu_canvas.style.width = "650px";
     vizzu_canvas.style.height = "500px";
     // which one to draw
-    drawBarChart();
+    if (card.classList.contains("card-1")) {
+        let data_card =
+          iframe.contentWindow.document.getElementById("data_card_1");
+        let data_array = data_card.dataset.card_1_data;
+        let data_json = JSON.parse(data_array);
+      drawBarChart(data_json);
+    } else if (card.classList.contains("card-2")) {
+       let data_card =
+         iframe.contentWindow.document.getElementById("data_card_2");
+       let data_array = data_card.dataset.card_2_data;
+       let data_json = JSON.parse(data_array);
+      drawLineChart(data_json);
+    }
   }
 }
 

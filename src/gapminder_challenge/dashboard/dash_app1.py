@@ -3,9 +3,10 @@ from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
 
-df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
+df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')  # local run
 # df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
-df_year = df.groupby(['year', 'region']).agg({'co2_per_capita': 'sum'}).reset_index()
+df_year = df.groupby(['year', 'region']).agg(
+    {'co2_per_capita': 'sum'}).reset_index()
 
 url = '/dash_app1/'
 
@@ -32,16 +33,17 @@ def add_dash(server):
                    ),
         dcc.Dropdown(df_year.region.unique(),
                      id='dropdown',
-                     value=['Europe', 'Asia', 'Americas', 'Africa' , 'Oceania'],
+                     value=['Europe', 'Asia', 'Americas', 'Africa', 'Oceania'],
                      multi=True),
-        html.Div(id="data_card_1", className="data_card", **{'data-card_1_data': []})
+        html.Div(id="data_card_1", className="data_card",
+                 **{'data-card_1_data': []})
     ])
 
     # Set up callbacks/backend
     @app.callback(
-    Output('bar_chart', 'srcDoc'),
-    Input('slider', 'value'),
-    Input('dropdown', 'value'))
+        Output('bar_chart', 'srcDoc'),
+        Input('slider', 'value'),
+        Input('dropdown', 'value'))
     def plot_altair(year, regions):
         """
         The function takes in a year, countries and 
@@ -66,11 +68,8 @@ def add_dash(server):
     def get_data(regions=["Europe", "Asia", "Americas", "Africa", "Oceania"]):
         if "Asia" not in regions:
             regions.append("Asia")
-        # get df for country, year and life_expectancy
         df_viz = df_year.query(f'region=={regions}')
-        # select column for country, year and life_expectancy
         df_viz = df_viz[['region', 'year', 'co2_per_capita']]
-        # convert df_viz to array with comma delimiter
         df_viz = df_viz.to_json()
 
         return (df_viz)

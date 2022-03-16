@@ -49,7 +49,18 @@ function flip_story(event) {
         "Life expectancy is trending up",
         "vizzu_card_3"
       );
+     } else if (card.classList.contains("card-4")) {
+      let data_card =
+        iframe.contentWindow.document.getElementById("data_card_4");
+      let data_array = data_card.dataset.card_4_data;
+      let data_json = JSON.parse(data_array);
+      drawLineChart(
+        data_json,
+        "Income per capita has been rising",
+        "vizzu_card_4"
+      );
     }
+
   }
 }
 

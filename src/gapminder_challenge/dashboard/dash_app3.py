@@ -87,6 +87,4 @@ def add_dash(server):
         return (df_viz)
 
 
-        return (df_viz)
-
     return app.server

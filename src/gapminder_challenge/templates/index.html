@@ -176,15 +176,14 @@
             <button class="button-6" onclick=" quiz4Func(event,'btn1')" id="q4_btn1">Oceania</button>
             <button class="button-6" onclick="quiz4Func(event,'btn2')" id="q4_btn2" onmousedown="party.confetti(this)">Europe</button>
             <button class="button-6" onclick="quiz4Func(event,'btn3')" id="q4_btn3">Asia</button>
-            <br>
-            <button onclick="flip(event)" id="q4_btn4" style="display:none; width:50%">Flip to Explore!</button>
           </div>
         </div>
         <div class="back">
-          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+            <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+            <img class="btn-story" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
           <div>
             <br>
-            <iframe noresize="noresize" style="
+            <iframe class="iframe_card" id="iframe_card_4"  noresize="noresize" style="
       position: absolute;
       background: transparent;
       width: 100%;
@@ -192,6 +191,14 @@
         border: 0px solid black;
     " src={{app4}}>
             </iframe>
+          </div>
+        </div>
+        <div class="story">
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
+          <div>
+            <br>
+            <br>
+            <canvas class="vizzu_canvas" id="vizzu_card_4" width="650" height="500"></canvas>
           </div>
         </div>
       </div>

@@ -1,20 +1,20 @@
   
   function drawBarChart() {
-    var iframe = document.getElementById("iframe_card_1");
-    var data_card = iframe.contentWindow.document.getElementById("data_card_1");
-    var data_array = data_card.dataset.card_1_data
-    var data_json = JSON.parse(data_array);
+    let iframe = document.getElementById("iframe_card_1");
+    let data_card = iframe.contentWindow.document.getElementById("data_card_1");
+    let data_array = data_card.dataset.card_1_data
+    let data_json = JSON.parse(data_array);
 
-    var region_data = []
-    var data_keys = Object.keys(data_json);
-    var region_subkeys = Object.keys(data_json[data_keys[0]])
-    var region_size = Object.keys(data_json[data_keys[0]]).length;
+    let region_data = []
+    let data_keys = Object.keys(data_json);
+    let region_subkeys = Object.keys(data_json[data_keys[0]])
+    let region_size = Object.keys(data_json[data_keys[0]]).length;
     
     
 
-    for (var i = 0; i < region_size; i++) {
-      var region_data_temp = []
-      for (var j = 0; j < data_keys.length; j++) {
+    for (let i = 0; i < region_size; i++) {
+      let region_data_temp = []
+      for (let j = 0; j < data_keys.length; j++) {
         region_data_temp.push(data_json[data_keys[j]][region_subkeys[i]])
       }
       region_data.push(region_data_temp)
@@ -122,21 +122,21 @@
 
       
   function drawLineChart(event) {
-    var iframe = document.getElementById("iframe_card_2");
-    var elmnt = iframe.contentWindow.document.getElementById("data_card_2");
-    var my_array = elmnt.dataset.card_2_data
-    var region_json = JSON.parse(my_array);
+    let iframe = document.getElementById("iframe_card_2");
+    let elmnt = iframe.contentWindow.document.getElementById("data_card_2");
+    let my_array = elmnt.dataset.card_2_data
+    let region_json = JSON.parse(my_array);
 
-    var region_data = []
-    var region_keys = Object.keys(region_json);
-    var region_subkeys = Object.keys(region_json[region_keys[0]])
-    var region_size = Object.keys(region_json[region_keys[0]]).length;
+    let region_data = []
+    let region_keys = Object.keys(region_json);
+    let region_subkeys = Object.keys(region_json[region_keys[0]])
+    let region_size = Object.keys(region_json[region_keys[0]]).length;
     
     
 
-    for (var i = 0; i < region_size; i++) {
-      var region_data_temp = []
-      for (var j = 0; j < region_keys.length; j++) {
+    for (let i = 0; i < region_size; i++) {
+      let region_data_temp = []
+      for (let j = 0; j < region_keys.length; j++) {
         region_data_temp.push(region_json[region_keys[j]][region_subkeys[i]])
       }
       region_data.push(region_data_temp)

@@ -9,28 +9,26 @@ function flip(event) {
 };
 
 function flip_story(event) {
-  var card = event.currentTarget.closest(".card");
-     var front = card.querySelector('.front');
-    var story = card.querySelector('.story');
-    var vizzu_canvas = story.querySelector('.vizzu_canvas');
-    if (card.style.transform == "rotateY(180deg)") {
-      front.style.display = "none";
-      story.style.display = "block";
-
-      
-      vizzu_canvas.style.width = '650px';
-      vizzu_canvas.style.height = '500px';
-
-      card.style.transform = "rotateY(360deg)";
-      // which one to draw
-      drawBarChart();
-    }
-    else {
-      card.style.transform = "rotateY(180deg)";
+  let card = event.currentTarget.closest(".card");
+     let front = card.querySelector('.front');
+    let story = card.querySelector('.story');
+    let vizzu_canvas = story.querySelector('.vizzu_canvas');
+    if (card.style.transform == "rotateY(360deg)") {
       setTimeout(() => {  
         front.style.display = "flex"; 
         story.style.display = "none";
       }, 1000);
+      card.style.transform = "rotateY(180deg)";
+    }
+    else {
+      card.style.transform = "rotateY(360deg)";
+      front.style.display = "none";
+      story.style.display = "block";
+      vizzu_canvas.style.width = '650px';
+      vizzu_canvas.style.height = '500px';
+      // which one to draw
+      drawBarChart();
+
     }
 };
 

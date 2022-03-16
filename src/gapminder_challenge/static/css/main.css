@@ -1,112 +1,120 @@
 body {
-background: #1E9600;  
-background: -webkit-linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e);
-background: linear-gradient(to bottom, #03001e, #7303c0, #f1cde7, #7303c0,#03001e); 
-font-family: 'Kalam', cursive;
+  background: #1e9600;
+  background: -webkit-linear-gradient(
+    to bottom,
+    #03001e,
+    #7303c0,
+    #f1cde7,
+    #7303c0,
+    #03001e
+  );
+  background: linear-gradient(
+    to bottom,
+    #03001e,
+    #7303c0,
+    #f1cde7,
+    #7303c0,
+    #03001e
+  );
+  font-family: "Kalam", cursive;
 }
-  .left {
-      float: left;
-      width: 50%;
-    }
+.left {
+  float: left;
+  width: 50%;
+}
 
-    .right {
-      float: left;
-      width: 50%;
-    }
+.right {
+  float: left;
+  width: 50%;
+}
 
-    .header {
-      text-align: center
-    }
+.header {
+  text-align: center;
+}
 
-    div {
-      width: 100%;
-      height: 100%;
-    }
-
-    .container {
-      margin: 20px;
-      width: 650px;
-      height: 600px;
-      perspective: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.2rem;
-    }
-
-    .card {
-      transition: transform 2s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-      background-color: white;
-      border-radius: 30px;
-      color: white;
-    }
-
-    .front{
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      backface-visibility: hidden;
-      border-radius: 30px;
-    }
-
-    .front p {
-      margin: 40px;
-    }
-
-    .back {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      backface-visibility: hidden;
-      border-radius: 30px;
-      background-color: white;
-    }
-  
-
-    .back {
-      transform: rotateY(180deg);
-    }
-   
-
-    .btn-group {
-   
-      width: 50%;
-      height: 50%;
-    }
-
-   
-    
-
-    .display-2 {
-      color: white;
-      font-size: 4rem;
-      font-weight: 500;
-      line-height: 0.5;
-      text-align: center; 
-      
-  }
-  .jumbotron {
-    font-family: 'Press Start 2P', cursive;
-    
+.title {
+  color: white;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 0.5;
+  text-align: center;
+}
+.jumbotron {
+  font-family: "Press Start 2P", cursive;
 }
 .lead {
-  text-align: center; 
-  color: white; 
-  font-family: 'Caveat', cursive;
+  text-align: center;
+  color: white;
+  font-family: "Caveat", cursive;
   font-size: 2rem;
 }
+
+div {
+  width: 100%;
+  height: 100%;
+}
+/* CARD CONTAINER */
+.container {
+  margin: 20px;
+  width: 650px;
+  height: 600px;
+  perspective: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+}
+
+.card {
+  transition: transform 2s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 30px;
+  color: white;
+}
+
+.front {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  border-radius: 30px;
+}
+
+.front p {
+  margin: 40px;
+}
+
+.back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* BUTTON */
+.btn-group {
+  width: 50%;
+  height: 50%;
+}
+
 .flip_button {
   height: 3%;
   padding: 5px;
   width: 5%;
   margin-top: 0%;
   margin-left: 90%;
-  margin-right: 5%
+  margin-right: 5%;
 }
 
 .flip_button button {
@@ -120,81 +128,101 @@ font-family: 'Kalam', cursive;
 }
 
 /* CARD BACKGROUNDS */
-
 .card-1 {
-background: #f12711;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left top, #e0a014, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left top, #e0a014, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
+  background: #f12711; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left top,
+    #e0a014,
+    #f12711
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left top,
+    #e0a014,
+    #f12711
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .card-2 {
-background: #e96443;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right top,  #f0967f, #904e95,);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right top, #f0967f, #904e95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #e96443; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right top,
+    #f0967f,
+    #904e95
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right top,
+    #f0967f,
+    #904e95
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .card-3 {
-background: #4e54c8;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right top,#4e54c8, #a3a6e0 );  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right top,#4e54c8, #a3a6e0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+  background: #4e54c8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right top,
+    #4e54c8,
+    #a3a6e0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right top,
+    #4e54c8,
+    #a3a6e0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-
 
 .card-4 {
-background: #43cea2;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left top, #185a9d, #43cea2);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #43cea2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left top,
+    #185a9d,
+    #43cea2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left top,
+    #185a9d,
+    #43cea2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 
 /* CSS CARD BUTTON */
 .button-6 {
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: rgba(245, 243, 243, 0.65);
   cursor: pointer;
   display: inline-flex;
-  font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
   font-size: 20px;
   justify-content: center;
   line-height: 1.25;
   margin: 0;
   min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
   text-decoration: none;
   transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  /* vertical-align: baseline; */
   width: auto;
 
   padding: 10px 24px;
-      margin: 20px;
-      /* Some padding */
-      cursor: pointer;
-      /* Pointer/hand icon */
-      width: 100%;
-      /* Set a width if needed */
-      display: block;
-      /* Make the buttons appear below each other */
-      border-radius: 20px;
-      margin-left: auto;
-      margin-right: auto;
-      /* background-color: rgb(105, 105, 143); */
-      background-color: transparent;
+  margin: 20px;
+  /* Some padding */
+  cursor: pointer;
+  /* Pointer/hand icon */
+  width: 100%;
+  /* Set a width if needed */
+  display: block;
+  /* Make the buttons appear below each other */
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: rgb(105, 105, 143); */
+  background-color: transparent;
 }
 
 .button-6:hover,
@@ -209,7 +237,7 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
 }
 
 .button-6:active {
-  background-color: #F0F0F1;
+  background-color: #f0f0f1;
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
@@ -217,26 +245,31 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
 }
 
 .button-shake {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
-  20%, 80% {
+
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
 }
@@ -244,11 +277,11 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
 /* FLIP BUTTON */
 .btn--jump {
   position: absolute;
-    top: 30px;  /* position the div */
-    right: 30px;
-    float: right; 
-   width: 80px;
-   height: 80px;
+  top: 30px; /* position the div */
+  right: 30px;
+  float: right;
+  width: 80px;
+  height: 80px;
 }
 .btn--jump.is-active {
   animation: 0.6s jump ease 1s 10 alternate;
@@ -267,31 +300,31 @@ background: linear-gradient(to left top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge
 
 .btn-back {
   position: absolute;
-    top: 0px;  /* position the div */
-    left: 10px;
-    float: left; 
-   width: 60px;
-   height: 60px;
-   -webkit-transform: scaleX(-1);
+  top: 0px; /* position the div */
+  left: 10px;
+  float: left;
+  width: 60px;
+  height: 60px;
+  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   z-index: 1;
 }
 .btn-story {
-   position: absolute;
-    top: 0px;  /* position the div */
-    right: 15px;
-    float: right; 
-   width: 60px;
-   height: 60px;
+  position: absolute;
+  top: 0px; /* position the div */
+  right: 15px;
+  float: right;
+  width: 60px;
+  height: 60px;
   z-index: 1;
 }
 
 .no-click {
-   pointer-events: none;
+  pointer-events: none;
 }
 
-  .story{
-      background-color: white;
-      border-radius: 30px;
-       display: none;
-    }
+.story {
+  background-color: white;
+  border-radius: 30px;
+  display: none;
+}

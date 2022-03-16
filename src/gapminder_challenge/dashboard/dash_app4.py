@@ -3,8 +3,8 @@ from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
 # Read in the raw data and subset the data for analysis
-# df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv') # local run
-df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
+df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')  # local run
+# df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
 df = df[["country", "year", "population", "region", "income"]]
 
 # Define constant values
@@ -15,6 +15,7 @@ INCOME_UNIT = 1000000
 REGIONS = df["region"].unique()
 COUNTRIES = df["country"].unique()
 url = '/dash_app4/'
+
 
 def add_dash(server):
     """
@@ -30,31 +31,31 @@ def add_dash(server):
         html.Iframe(
             id='main_chart',
             style={'border-width': '0', 'width': '100%', 'height': '400px'}),
-            html.Label([
-                'Zoom in Years: ',
-                dcc.RangeSlider(min=1901, max=2018,
-                   value=[YEAR_MIN, YEAR_MAX],
-                   id='year_slider',
+        html.Label([
+            'Zoom in Years: ',
+            dcc.RangeSlider(min=1901, max=2018,
+                            value=[YEAR_MIN, YEAR_MAX],
+                            id='year_slider',
                    marks={str(year): str(year)
-                          for year in range(YEAR_MIN, YEAR_MAX, YEAR_INTERVAL)}
-                   )
-            ]),     
-            html.Label([
-                'Filter by Geographic Region: ',
-                    dcc.Dropdown(id="region_dropdown",
-                    value="",
-                    options=REGIONS,
-                    multi=True)
-             ])
+                                for year in range(YEAR_MIN, YEAR_MAX, YEAR_INTERVAL)}
+            )
+        ]),
+        html.Label([
+            'Filter by Geographic Region: ',
+            dcc.Dropdown(id="region_dropdown",
+                         value="",
+                         options=REGIONS,
+                         multi=True)
+        ]),
+        html.Div(id="data_card_4", **{'data-card_4_data': []})
     ])
 
     # Set up callbacks/backend
     @app.callback(
-    Output('main_chart', 'srcDoc'),
-    Input('year_slider', 'value'),
-    Input('region_dropdown', 'value')
+        Output('main_chart', 'srcDoc'),
+        Input('year_slider', 'value'),
+        Input('region_dropdown', 'value')
     )
-
     def plot_altair(year_slider, region_dropdown):
         """
         The function
@@ -65,11 +66,13 @@ def add_dash(server):
         """
         if region_dropdown == "":
             df_by_year = df.groupby(["year"]).sum()
-            df_by_year["income_per_capita"] = round(df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+            df_by_year["income_per_capita"] = round(
+                df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
             df_by_year = df_by_year.reset_index()
             chart = alt.Chart(df_by_year.query(
                 f'year>={year_slider[0]} and year<={year_slider[1]}'),
                 title="Income Per Capita Has Been Rising"
+
                 ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.3)
                 ).encode(
                     alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]], round=True)),
@@ -79,7 +82,8 @@ def add_dash(server):
         else:
             df_subset_region = df[df.region.isin(region_dropdown)]
             df_by_year = df_subset_region.groupby(["region", "year"]).sum()
-            df_by_year["income_per_capita"] = round(df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+            df_by_year["income_per_capita"] = round(
+                df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
             df_by_year = df_by_year.reset_index()
             chart = alt.Chart(df_by_year.query(
                 f'year>={year_slider[0]} and year<={year_slider[1]}'),
@@ -91,8 +95,26 @@ def add_dash(server):
                     alt.Color("region", title = "Region"),
                     strokeWidth=alt.value(3),
                     tooltip = ["year", "income_per_capita"])
-       
+
 
         return (chart).to_html()
+
+    @app.callback(
+        Output('data_card_4', 'data-card_4_data'),
+        Input('region_dropdown', 'value'))
+    def get_data(regions=["Western Europe", "Southern  Asia", "Northern America"]):
+        if regions == "":
+            regions = ["Europe", "Asia", "Americas", "Africa", "Oceania"]
+        # df_subset_region = df[df.region.isin(regions)]
+        df_subset_region = df.query(f'region=={regions}')
+        print(df_subset_region)
+        df_by_year = df_subset_region.groupby(["region", "year"]).sum()
+        df_by_year["income_per_capita"] = round(
+            df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+        df_by_year = df_by_year.reset_index()
+        df_viz = df_by_year[['region', 'year', 'income_per_capita']]
+        df_viz = df_viz.to_json()
+        # print(df_viz)
+        return (df_viz)
 
     return app.server

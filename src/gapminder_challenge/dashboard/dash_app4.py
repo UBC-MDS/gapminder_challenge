@@ -3,15 +3,14 @@ from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
 # Read in the raw data and subset the data for analysis
-df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')  # local run
+df = pd.read_csv('../../data/raw/combined-data-for-GDP-per-cap.csv')  # local run
 # df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
-df = df[["country", "year", "population", "region", "income"]]
+df = df.rename(columns={"GDP total": "income"})
 
 # Define constant values
-YEAR_MIN = 1901
+YEAR_MIN = 1960
 YEAR_MAX = 2018
 YEAR_INTERVAL = 10
-INCOME_UNIT = 1000000
 REGIONS = df["region"].unique()
 COUNTRIES = df["country"].unique()
 url = '/dash_app4/'
@@ -34,11 +33,12 @@ def add_dash(server):
                    'margin-left': 'auto', 'margin-right': 'auto'}),
         html.Label([
             'Zoom in Years: ',
-            dcc.RangeSlider(min=1901, max=2018,
+            dcc.RangeSlider(min=YEAR_MIN, max=YEAR_MAX, step = 1,
                             value=[YEAR_MIN, YEAR_MAX],
                             id='year_slider',
-                   marks={str(year): str(year)
-                                for year in range(YEAR_MIN, YEAR_MAX, YEAR_INTERVAL)}
+                            marks={str(year): str(year)
+                            for year in range(YEAR_MIN, YEAR_MAX, YEAR_INTERVAL)},
+                            tooltip={"placement": "bottom", "always_visible": True}
             )
         ]),
         html.Label([
@@ -68,7 +68,7 @@ def add_dash(server):
         if region_dropdown == "":
             df_by_year = df.groupby(["year"]).sum()
             df_by_year["income_per_capita"] = round(
-                df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+                df_by_year["income"] / df_by_year["population"], 1)
             df_by_year = df_by_year.reset_index()
             chart = alt.Chart(df_by_year.query(
                 f'year>={year_slider[0]} and year<={year_slider[1]}'),
@@ -77,14 +77,14 @@ def add_dash(server):
                 ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.3)
                 ).encode(
                     alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]], round=True)),
-                    alt.Y('income_per_capita', title='Income Per Capita (in US$)'),
+                    alt.Y('income_per_capita', title='Income Per Capita (in 2017 US$)'),
                     strokeWidth=alt.value(3),
                     tooltip = ["year", "income_per_capita"]).interactive()
         else:
             df_subset_region = df[df.region.isin(region_dropdown)]
             df_by_year = df_subset_region.groupby(["region", "year"]).sum()
             df_by_year["income_per_capita"] = round(
-                df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+                df_by_year["income"] / df_by_year["population"], 1)
             df_by_year = df_by_year.reset_index()
             chart = alt.Chart(df_by_year.query(
                 f'year>={year_slider[0]} and year<={year_slider[1]}'),
@@ -92,7 +92,7 @@ def add_dash(server):
                 ).mark_line(point=alt.OverlayMarkDef(color="blue", opacity=0.5)
                 ).encode(
                     alt.X('year', title='Year', scale=alt.Scale(domain=[year_slider[0], year_slider[1]], round=True)),
-                    alt.Y('income_per_capita', title='Income Per Capita (in US$)'),
+                    alt.Y('income_per_capita', title='Income Per Capita (in 2017 US$)'),
                     alt.Color("region", title = "Region"),
                     strokeWidth=alt.value(3),
                     tooltip = ["year", "income_per_capita"])
@@ -110,7 +110,7 @@ def add_dash(server):
         df_subset_region = df.query(f'region=={regions}')
         df_by_year = df_subset_region.groupby(["region", "year"]).sum()
         df_by_year["income_per_capita"] = round(
-            df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
+            df_by_year["income"] / df_by_year["population"], 1)
         df_by_year = df_by_year.reset_index()
         df_viz = df_by_year[['region', 'year', 'income_per_capita']]
         df_viz = df_viz.to_json()

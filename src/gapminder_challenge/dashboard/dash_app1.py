@@ -26,13 +26,14 @@ def add_dash(server):
             id='bar_chart',
             style={'border-width': '0', 'width': '555px', 'height': '400px', 'display': 'block',
                    'margin-left': 'auto', 'margin-right': 'auto'}),
-  
+        html.Label('Zoom in Years: '),
         dcc.Slider(1914, 2014, 1,
                    value=1914,
                    id='slider',
                    marks=None,
                    tooltip={"placement": "bottom", }
                    ),
+        html.Label('Select Regions: '),
         dcc.Dropdown(df_year.region.unique(),
                      id='dropdown',
                      value=['Europe', 'Asia', 'Americas', 'Africa', 'Oceania'],
@@ -55,10 +56,10 @@ def add_dash(server):
         :param countries: The countries to plot
         :return: The Altair chart is being returned.
         """
-        chart = alt.Chart(df_year.query(f'year=={year} and region=={regions}'), title=f'CO2 per Capita in {year}',).mark_bar(
+        chart = alt.Chart(df_year.query(f'year=={year} and region=={regions}'), title=f'CO2 emission in {year}',).mark_bar(
             opacity=0.5).encode(
             alt.X('co2_per_capita', title='CO2 per Capita'),
-            alt.Y('region', sort='-x', title='Region'),
+            alt.Y('region', sort='-x', title='Regions'),
             tooltip=['region', 'year', 'co2_per_capita', ],
             color='region').interactive()
 

@@ -3,91 +3,26 @@
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
   <title>Gapminder Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Kalam:wght@300&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-  <script>
-    function flip(event) {
-      var element = event.currentTarget.closest(".card");
-      if (element.className === "card") {
-        if (element.style.transform == "rotateY(180deg)") {
-          element.style.transform = "rotateY(0deg)";
-        }
-        else {
-          element.style.transform = "rotateY(180deg)";
-        }
-      }
-    };
-    function quiz1Func(value) {
-
-      btn1 = document.getElementById("btn1");
-      btn2 = document.getElementById("btn2");
-      btn3 = document.getElementById("btn3");
-      btn4 = document.getElementById("btn4");
-
-      btn1.style.backgroundColor = "#ee4266";
-      btn1.style.color = "white";
-      btn2.style.backgroundColor = "#0ead69";    // correct answer
-      btn2.style.color = "white";
-      btn3.style.backgroundColor = "#ee4266";
-      btn3.style.color = "white";
-      btn4.style.display = "block"
-
-    }
-    function quiz2Func(value) {
-
-      btn1 = document.getElementById("q2_btn1");
-      btn2 = document.getElementById("q2_btn2");
-      btn3 = document.getElementById("q2_btn3");
-      btn4 = document.getElementById("q2_btn4");
-
-      btn1.style.backgroundColor = "#ee4266";
-      btn1.style.color = "white";
-      btn2.style.backgroundColor = "#ee4266";
-      btn2.style.color = "white";
-      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
-      btn3.style.color = "white";
-      btn4.style.display = "block"
-
-    }
-
-    function quiz3Func(value) {
-
-      btn1 = document.getElementById("q3_btn1");
-      btn2 = document.getElementById("q3_btn2");
-      btn3 = document.getElementById("q3_btn3");
-      btn4 = document.getElementById("q3_btn4");
-
-      btn1.style.backgroundColor = "#ee4266";
-      btn1.style.color = "white";
-      btn2.style.backgroundColor = "#ee4266";
-      btn2.style.color = "white";
-      btn3.style.backgroundColor = "#0ead69";  // correct answer is 2.7
-      btn3.style.color = "white";
-      btn4.style.display = "block"
-
-    }
-
-    function quiz4Func(value) {
-
-      btn1 = document.getElementById("q4_btn1");
-      btn2 = document.getElementById("q4_btn2");
-      btn3 = document.getElementById("q4_btn3");
-      btn4 = document.getElementById("q4_btn4");
-
-      btn1.style.backgroundColor = "#ee4266"; 
-      btn1.style.color = "white";
-      btn2.style.backgroundColor = "#0ead69";// Correct answer
-      btn2.style.color = "white";
-      btn3.style.backgroundColor = "#ee4266";
-      btn4.style.display = "block"
-    }
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+  <script src="{{url_for('static', filename='js/main.js')}}"></script>
+  <script type="module">
+    import Vizzu from "https://cdn.jsdelivr.net/npm/vizzu@0.4.3/dist/vizzu.min.js";
+    window.vizzuFromModule = Vizzu;
   </script>
+  <script src="{{url_for('static', filename='js/vizzu.js')}}"></script>
 
 </head>
 
 <body>
   <div class="jumbotron">
-    <h1 class="display-2">Gapminder Challenge</h1>
+    <h1 class="title">Gapminder Challenge</h1>
     <p class="lead">Take the challenges below to see how
       you understand global issues such as
       healthcare and finance development. <br>Test yourselves now!</p>
@@ -99,24 +34,25 @@
 
   <div class="left">
     <div class="container">
-      <div class="card">
-        <div class="front">
+      <div class="card card-1">
+        <div class="front ">
+          <img id="btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none" onclick="flip(event)">
           <h1>Challenge 1</h1>
-          <p>The countries in which continents has been the main CO2 emitter?</p>
-          <div class="btn-group"" >
-            <button onclick=" quiz1Func()" id="btn1">Americas</button>
-            <button onclick="quiz1Func()" id="btn2">Europe</button>
-            <button onclick="quiz1Func()" id="btn3">Asia</button>
-            <br>
-            <button onclick="flip(event)" id="btn4" style="display:none; width:50%">Flip to Explore!</button>
+          <p>Which continents has the highest C02 per capita in 2014?</p>
+          <div class="btn-group">
+            <button class="button-6" onclick="quiz1Func(event, 'btn1')" id="btn1">Americas</button>
+            <button class="button-6" onclick="quiz1Func(event, 'btn2')" onmousedown="party.confetti(this)"
+              id="btn2">Asia</button>
+            <button class="button-6" onclick="quiz1Func(event, 'btn3')" id="btn3">Europe</button>
           </div>
         </div>
         <div class="back">
-          <div class="flip_button">
-            <button onclick="flip(event)" id="btn5">Back</button>
-          </div>
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+          <img class="btn-story" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
           <div>
-            <iframe noresize="noresize" style="
+            <br>
+            <br>
+            <iframe class="iframe_card" id="iframe_card_1" noresize="noresize" style="
         position: absolute;
         background: transparent;
         width: 100%;
@@ -126,7 +62,18 @@
             </iframe>
           </div>
         </div>
+        <div class="story">
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
+          <div>
+            <br>
+            <br>
+            <canvas class="vizzu_canvas" id="vizzu_card_1" width="650" height="500"></canvas>
+          </div>
+        </div>
+
       </div>
+
+
     </div>
   </div>
 
@@ -135,25 +82,25 @@
   <!-- PART 2 -->
   <div class="right">
     <div class="container">
-      <div class="card">
+      <div class="card card-2">
         <div class="front">
+          <img id="q2_btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none"
+            onclick="flip(event)">
           <h1>Challenge 2</h1>
           <p> The average number of children per woman in 1960 is 5.5, how about in 2010?</p>
           <div class="btn-group">
-            <button onclick=" quiz2Func('a')" id="q2_btn1">5.0</button>
-            <button onclick="quiz2Func('b')" id="q2_btn2">0.9</button>
-            <button onclick="quiz2Func('c')" id="q2_btn3">3.0</button>
-            <br>
-            <button onclick="flip(event)" id="q2_btn4" style="display:none; width:50%">Flip to
-              Explore!</button>
+            <button class="button-6" onclick=" quiz2Func(event,'btn1')" id="q2_btn1">5.0</button>
+            <button class="button-6" onclick="quiz2Func(event,'btn2')" id="q2_btn2">0.9</button>
+            <button class="button-6" onclick="quiz2Func(event,'btn3')" id="q2_btn3"
+              onmousedown="party.confetti(this)">3.0</button>
           </div>
         </div>
         <div class="back">
-          <div class="flip_button">
-            <button onclick="flip(event)" id="btn5">Back</button>
-          </div>
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+          <img class="btn-story" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
           <div>
-            <iframe noresize="noresize" style="
+            <br>
+            <iframe class="iframe_card" id="iframe_card_2" noresize="noresize" style="
           position: absolute;
           background: transparent;
           width: 100%;
@@ -161,6 +108,14 @@
           border: 0px solid black;
         " src={{app2}}>
             </iframe>
+          </div>
+        </div>
+        <div class="story">
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
+          <div>
+            <br>
+            <br>
+            <canvas class="vizzu_canvas" id="vizzu_card_2" width="650" height="500"></canvas>
           </div>
         </div>
       </div>
@@ -171,24 +126,25 @@
   <!-- PART 3 -->
   <div class="left">
     <div class="container">
-      <div class="card">
+      <div class="card card-3">
         <div class="front">
+          <img id="q3_btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none"
+            onclick="flip(event)">
           <h1>Challenge 3</h1>
           <p> Average life expectancy was about 34 in Sub-Saharran Africa in 1940. What about in 2018?</p>
           <div class="btn-group">
-            <button onclick=" quiz3Func('a')" id="q3_btn1">48</button>
-            <button onclick="quiz3Func('b')" id="q3_btn2">57</button>
-            <button onclick="quiz3Func('c')" id="q3_btn3">64</button>
-            <br>
-            <button onclick="flip(event)" id="q3_btn4" style="display:none; width:50%">Flip to Explore!</button>
+            <button class="button-6" onclick=" quiz3Func(event,'btn1')" id="q3_btn1">48</button>
+            <button class="button-6" onclick="quiz3Func(event,'btn2')" id="q3_btn2">57</button>
+            <button class="button-6" onclick="quiz3Func(event,'btn3')" id="q3_btn3"
+              onmousedown="party.confetti(this)">64</button>
           </div>
         </div>
         <div class="back">
-          <div class="flip_button">
-            <button onclick="flip(event)" id="q3_btn5">Back</button>
-          </div>
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+          <img class="btn-story" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
           <div>
-            <iframe noresize="noresize" style="
+            <br>
+            <iframe class="iframe_card" id="iframe_card_3" noresize="noresize" style="
             position: absolute;
             background: transparent;
             width: 100%;
@@ -196,6 +152,14 @@
             border: 0px solid black;
             " src={{app3}}>
             </iframe>
+          </div>
+        </div>
+        <div class="story">
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
+          <div>
+            <br>
+            <br>
+            <canvas class="vizzu_canvas" id="vizzu_card_3" width="650" height="500"></canvas>
           </div>
         </div>
       </div>
@@ -208,24 +172,25 @@
   <!-- PART 4 -->
   <div class="right">
     <div class="container">
-      <div class="card">
+      <div class="card card-4">
         <div class="front">
+          <img id="q4_btn4" class="btn--jump" src="/static/img/right-arrow.png" style="display:none"
+            onclick="flip(event)">
           <h1>Challenge 4</h1>
           <p> Which region experienced the greatest increase in income per capita during the last 50 years?</p>
           <div class=" btn-group">
-            <button onclick=" quiz4Func('1')" id="q4_btn1">Oceania</button>
-            <button onclick="quiz4Func('2')" id="q4_btn2">Europe</button>
-            <button onclick="quiz4Func('3')" id="q4_btn3">Asia</button>
-            <br>
-            <button onclick="flip(event)" id="q4_btn4" style="display:none; width:50%">Flip to Explore!</button>
+            <button class="button-6" onclick=" quiz4Func(event,'btn1')" id="q4_btn1">Oceania</button>
+            <button class="button-6" onclick="quiz4Func(event,'btn2')" id="q4_btn2"
+              onmousedown="party.confetti(this)">Europe</button>
+            <button class="button-6" onclick="quiz4Func(event,'btn3')" id="q4_btn3">Asia</button>
           </div>
         </div>
         <div class="back">
-          <div class="flip_button">
-            <button onclick="flip(event)" id="q4_btn5">Back</button>
-          </div>
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip(event)">
+          <img class="btn-story" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
           <div>
-            <iframe noresize="noresize" style="
+            <br>
+            <iframe class="iframe_card" id="iframe_card_4" noresize="noresize" style="
       position: absolute;
       background: transparent;
       width: 100%;
@@ -233,6 +198,14 @@
         border: 0px solid black;
     " src={{app4}}>
             </iframe>
+          </div>
+        </div>
+        <div class="story">
+          <img class="btn-back" src="/static/img/turn-right-arrow.png" onclick="flip_story(event)">
+          <div>
+            <br>
+            <br>
+            <canvas class="vizzu_canvas" id="vizzu_card_4" width="650" height="500"></canvas>
           </div>
         </div>
       </div>

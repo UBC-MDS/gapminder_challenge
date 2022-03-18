@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gapminder_challenge"
-version = "0.1.0"
+version = "1.0.0"
 description = "Package for Data Visualization"
 authors = ["DSCI532_Group12"]
 license = "MIT"

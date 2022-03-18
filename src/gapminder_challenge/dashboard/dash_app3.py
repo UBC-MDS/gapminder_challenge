@@ -20,7 +20,8 @@ def add_dash(server):
     app.layout = html.Div([
         html.Iframe(
             id='line_life_exp',
-            style={'border-width': '0', 'width': '100%', 'height': '400px'}),
+            style={'border-width': '0', 'width': '500px', 'height': '400px', 'display': 'block',
+                   'margin-left': 'auto', 'margin-right': 'auto'}),
         html.Label([
             'Zoom in years: ',
             dcc.RangeSlider(1918, 2018, 10, value=[1918, 2018], id='q3_year_range_slider',

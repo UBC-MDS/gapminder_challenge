@@ -30,10 +30,11 @@ def add_dash(server):
         html.Label([
             'Select sub-region to explore: ',
             dcc.Dropdown(
-                options=[{'label': 'All', 'value': 'All'}] +
-                [{'label': i, 'value': i}
+                options=[{'label': i, 'value': i}
                  for i in df['sub_region'].unique()],
-                value='Sub-Saharan Africa', id='q3_filter_dropdown')
+                value=['Sub-Saharan Africa'],
+                id='q3_filter_dropdown',
+                multi=True)
         ]),
         html.Div(id="data_card_3", **{'data-card_3_data': []})
     ])
@@ -53,11 +54,12 @@ def add_dash(server):
         :return: The Altair chart is being returned.
         """
         filter = filter_dropdown
-        if filter == "All" or filter == "":
+        if filter == []:
             df_q3 = df.groupby(['sub_region', 'year']).mean()
             df_q3 = df_q3.reset_index()
             chart = alt.Chart(df_q3.query(f'year>={year_range_slider[0]} and year<={year_range_slider[1]}'),
-                              title=f"Average Life Expectancy from {year_range_slider[0]} to {year_range_slider[1]}").mark_line().encode(
+                              title=[f"Average Life Expectancy in Sub-Regions",
+                              f"from {year_range_slider[0]} to {year_range_slider[1]}"]).mark_line().encode(
                 y=alt.Y("life_expectancy",
                         title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
@@ -66,18 +68,18 @@ def add_dash(server):
                 tooltip=['year', 'life_expectancy']).interactive()
         else:
             # only show the line for selected filter region
-            df_q3 = df[df['sub_region'] == filter]
+            df_q3 = df[df['sub_region'].isin(filter)]
             df_q3 = df_q3.groupby(['sub_region', 'year']).mean()
             df_q3 = df_q3.reset_index()
 
             chart = alt.Chart(df_q3.query(f'year>={year_range_slider[0]} and year<={year_range_slider[1]}'),
-                              title=[f"Average Life Expectancy in {filter}",
+                              title=[f"Average Life Expectancy in Sub-Regions",
                                      f"from {year_range_slider[0]} to {year_range_slider[1]}"]).mark_line().encode(
                 y=alt.Y("life_expectancy",
                         title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
                 strokeWidth=alt.value(3),
-                color=alt.Color('sub_region', legend=None),
+                color=alt.Color('sub_region'),
                 tooltip=['year', 'life_expectancy']).interactive()
 
         return chart.to_html()

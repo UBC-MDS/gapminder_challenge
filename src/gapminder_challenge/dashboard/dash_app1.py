@@ -24,7 +24,9 @@ def add_dash(server):
     app.layout = html.Div([
         html.Iframe(
             id='bar_chart',
-            style={'border-width': '0', 'width': '100%', 'height': '400px'}),
+            style={'border-width': '0', 'width': '555px', 'height': '400px', 'display': 'block',
+                   'margin-left': 'auto', 'margin-right': 'auto'}),
+  
         dcc.Slider(1914, 2014, 1,
                    value=1914,
                    id='slider',

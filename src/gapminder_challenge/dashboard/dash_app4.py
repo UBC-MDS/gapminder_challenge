@@ -108,14 +108,12 @@ def add_dash(server):
             regions = ["Europe", "Asia", "Americas", "Africa", "Oceania"]
         # df_subset_region = df[df.region.isin(regions)]
         df_subset_region = df.query(f'region=={regions}')
-        print(df_subset_region)
         df_by_year = df_subset_region.groupby(["region", "year"]).sum()
         df_by_year["income_per_capita"] = round(
             df_by_year["income"] * INCOME_UNIT / df_by_year["population"], 1)
         df_by_year = df_by_year.reset_index()
         df_viz = df_by_year[['region', 'year', 'income_per_capita']]
         df_viz = df_viz.to_json()
-        # print(df_viz)
         return (df_viz)
 
     return app.server

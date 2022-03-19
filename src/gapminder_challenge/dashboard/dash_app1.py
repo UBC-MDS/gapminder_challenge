@@ -3,8 +3,8 @@ from dash import Dash, html, dcc, Input, Output
 import altair as alt
 
 
-df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')  # local run
-# df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
+# df = pd.read_csv('../../data/raw/world-data-gapminder_raw.csv')  # local run
+df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
 df_year = df.groupby(['year', 'region']).agg(
     {'co2_per_capita': 'sum'}).reset_index()
 

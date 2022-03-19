@@ -109,7 +109,7 @@ function drawBarChart(data_json) {
   }
 }
 
-function drawLineChart(data_json, title, vizzu_id) {
+function drawLineChart(data_json, min_range, max_range, title, vizzu_id) {
   let line_data = [];
   let data_keys = Object.keys(data_json);
   let data_subkeys = Object.keys(data_json[data_keys[0]]);
@@ -188,10 +188,10 @@ function drawLineChart(data_json, title, vizzu_id) {
               x: { set: [label_2] },
               y: {
                 set: [label_3],
-                // range: {
-                //   min: 0,
-                //   max: 8,
-                // },
+                range: {
+                  min: min_range,
+                  max: max_range,
+                },
               },
               color: { attach: [label_1] },
             },

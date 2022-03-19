@@ -40,6 +40,7 @@ function flip_story(event) {
       let data_json = JSON.parse(data_array);
       drawLineChart(
         data_json,
+        0,8,
         "Average children per woman is trending down",
         "vizzu_card_2"
       );
@@ -50,6 +51,7 @@ function flip_story(event) {
       let data_json = JSON.parse(data_array);
       drawLineChart(
         data_json,
+        0,90,
         "Life expectancy is trending up",
         "vizzu_card_3"
       );
@@ -60,6 +62,7 @@ function flip_story(event) {
       let data_json = JSON.parse(data_array);
       drawLineChart(
         data_json,
+        0,50000,
         "Income per capita has been rising",
         "vizzu_card_4"
       );

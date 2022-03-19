@@ -22,7 +22,7 @@ def add_dash(server):
     app.layout = html.Div([
         html.Iframe(
             id='line_children',
-            style={'border-width': '0', 'width': '550px', 'height': '400px', 'display': 'block',
+            style={'border-width': '0', 'width': '600px', 'height': '400px', 'display': 'block',
                    'margin-left': 'auto', 'margin-right': 'auto'}),
         html.Label([
             'Zoom in years: ',

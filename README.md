@@ -4,9 +4,9 @@ Link to the app: <https://gapminder-challenge.herokuapp.com/>
 
 ![](images/gapminder_animation.gif)
 
-## Welcome
+## Welcome!
 
-Thank you for visiting the Gapminder Challenge app project repository.
+Thank you for visiting the Gapminder Challenge app project repository!
 
 This document is aimed to give you some information about our project. You can either jump straight to one of the sections below or scroll down to find out more.
 
@@ -37,10 +37,6 @@ This project is designed to augment the existing gapminder [worldview upgrader](
 
 Our app features a single page that hosts four interactive data visualization plots by a 2 by 2 layout. Each plot is associated with one question that evaluates the users' understanding of global development since 1900s. The topics include child birth rate, child mortality vs. income level, average life expectancy, and income per capita. Each plot has its own controls, such as sliders for year range and drop-down menus for country, region, and income group selections. These components allow the users to explore and manipulate the data supporting the answers to the questions, offering a dynamic and enriched learning experience.
 
-Here is an example sketch of the app:
-
-![](images/app_sketch.png)
-
 ## Installation
 
 1. Clone the repository and navigate to the root folder.
@@ -55,7 +51,7 @@ Here is an example sketch of the app:
 
 Our app is still under active development. We'd love your feedback along the way.
 
-Interested in contributing? We can certainly use your expertise in user experience design, data validation, front end development, and documentation. Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Interested in contributing? We can certainly use your expertise in user experience design, data validation, front end development, and documentation. Check out the contributing guidelines. Please note that this project is released with a [Code of Conduct](https://github.com/UBC-MDS/gapminder_challenge/blob/feat/readme/CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 For this project, we used `Dash` for dashboarding, `Altair` and `Plotly` for charts, and `Heroku` for deployment. Do check out the following links to learn more about them:
 

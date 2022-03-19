@@ -29,7 +29,7 @@ def add_dash(server):
     app.layout = html.Div([
         html.Iframe(
             id='main_chart',
-            style={'border-width': '0', 'width': '500px', 'height': '400px', 'display': 'block',
+            style={'border-width': '0', 'width': '550px', 'height': '400px', 'display': 'block',
                    'margin-left': 'auto', 'margin-right': 'auto'}),
         html.Label([
             'Zoom in Years: ',

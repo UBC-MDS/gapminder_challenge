@@ -24,13 +24,14 @@ def add_dash(server):
     app.layout = html.Div([
         html.Iframe(
             id='bar_chart',
-            style={'border-width': '0', 'width': '600px', 'height': '400px', 'display': 'block',
+            style={'border-width': '0', 'width': '530px', 'height': '400px', 'display': 'block',
                    'margin-left': 'auto', 'margin-right': 'auto'}),
         html.Label('Zoom in Years: '),
         dcc.Slider(1914, 2014, 1,
                    value=1914,
                    id='slider',
-                   marks=None,
+                   marks={str(year): str(year)
+                            for year in range(1914, 2015, 10)},
                    tooltip={"placement": "bottom", }
                    ),
         html.Label('Select Regions: '),
@@ -60,8 +61,9 @@ def add_dash(server):
             opacity=0.5).encode(
             alt.X('co2_per_capita', title='CO2 per Capita'),
             alt.Y('region', sort='-x', title='Regions'),
+            alt.Color('region', legend=None),
             tooltip=['region', 'year', 'co2_per_capita', ],
-            color='region').interactive()
+            ).interactive()
 
         return (chart).to_html()
 

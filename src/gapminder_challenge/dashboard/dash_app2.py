@@ -22,7 +22,7 @@ def add_dash(server):
     app.layout = html.Div([
         html.Iframe(
             id='line_children',
-            style={'border-width': '0', 'width': '500px', 'height': '400px', 'display': 'block',
+            style={'border-width': '0', 'width': '550px', 'height': '400px', 'display': 'block',
                    'margin-left': 'auto', 'margin-right': 'auto'}),
         html.Label([
             'Zoom in years: ',
@@ -80,7 +80,8 @@ def add_dash(server):
                 y=alt.Y("children_per_woman", title="Children per woman"),
                 x=alt.X("year", title="Year"),
                 strokeWidth=alt.value(3),
-                color=filter,
+                # color=filter,
+                color=alt.Color(filter, title=filter.replace('_', ' ').title()),
                 opacity=alt.condition(click, alt.value(0.9), alt.value(0.2)),
                 tooltip=['year', 'children_per_woman']).interactive().add_selection(click)
 

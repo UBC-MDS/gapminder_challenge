@@ -20,7 +20,7 @@ def add_dash(server):
     app.layout = html.Div([
         html.Iframe(
             id='line_life_exp',
-            style={'border-width': '0', 'width': '500px', 'height': '400px', 'display': 'block',
+            style={'border-width': '0', 'width': '100%', 'height': '400px', 'display': 'block',
                    'margin-left': 'auto', 'margin-right': 'auto'}),
         html.Label([
             'Zoom in years: ',
@@ -64,7 +64,7 @@ def add_dash(server):
                         title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
                 strokeWidth=alt.value(3),
-                color=alt.Color('sub_region'),
+                color=alt.Color('sub_region', title="Sub-Region"),
                 tooltip=['year', 'life_expectancy']).interactive()
         else:
             # only show the line for selected filter region
@@ -79,7 +79,7 @@ def add_dash(server):
                         title="Average Life Expectancy (Years)"),
                 x=alt.X("year", title="Year"),
                 strokeWidth=alt.value(3),
-                color=alt.Color('sub_region'),
+                color=alt.Color('sub_region', title="Sub-Region"),
                 tooltip=['year', 'life_expectancy']).interactive()
 
         return chart.to_html()
@@ -87,8 +87,9 @@ def add_dash(server):
     @app.callback(
         Output('data_card_3', 'data-card_3_data'),
         Input('q3_filter_dropdown', 'value'))
-    def get_data(subregions=["Western Europe", "Southern  Asia", "Northern America"]):
-        df_q3 = df[df['sub_region'] == subregions]
+    def get_data(subregions=["Sub-Saharan Africa"]):
+        # df_q3 = df[df['sub_region'] == subregions]
+        df_q3 = df.query(f'sub_region=={subregions}')
         df_q3 = df_q3.groupby(['sub_region', 'year']).mean()
         df_q3 = df_q3.reset_index()
         df_viz = df_q3[['sub_region', 'year', 'life_expectancy']]

@@ -4,7 +4,8 @@ import altair as alt
 
 # Read in the raw data and subset the data for analysis
 # df = pd.read_csv('../../data/raw/combined-data-for-GDP-per-cap.csv')  # local run
-df = pd.read_csv('data/raw/world-data-gapminder_raw.csv')  # heroku deployment
+# heroku deployment
+df = pd.read_csv('data/raw/combined-data-for-GDP-per-cap.csv')
 df = df.rename(columns={"GDP total": "income"})
 
 # Define constant values
